@@ -1,0 +1,128 @@
+#statusMessage {
+  font-weight: bold;
+  /*background-color: #D8D8D8;*/
+  height: 35px;
+}
+.warning {
+	/*
+	background-color: red;
+	font-weight: bold;
+	color: white;*/
+	padding:.8em;
+	margin-bottom:1em;
+	border:2px solid #ddd;
+	background:#FBE3E4;
+	color:#8a1f11;
+	border-color:#FBC2C4;
+}
+.notice {
+	/*
+	background-color: green;
+	font-weight: bold;
+	color: white;*/
+	padding:.8em;
+	margin-bottom:1em;
+	border:2px solid #ddd;
+	background:#E6EFC2;
+	color:#264409;
+	border-color:#C6D880;
+}
+#pageTitle {
+  margin-bottom: 10px;
+  margin-top: 5px;
+  border-bottom: 2px solid gray;
+  font-size: 16px;
+  font-weight: bold;
+}
+.odd {
+  background-color: #FFFBC0
+}
+.even {
+  background-color: white
+}
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+.formError {
+	font-weight: bold;
+	color: red;
+}
+/* Paginatin related classes */
+.pagination {
+	
+}
+.current {
+	font-weight: bold;
+}
+
+.articleBody {
+	width: 600px;
+	background-color: white;
+}
+/* ----------------------------------------------- 
+ * simple table using table tag 
+ *----------------------------------------------- */
+.simpleTable {
+	width: 100%;
+	border-spacing: 4px;
+	color: #404040;
+	background-color: #fafafa;
+	border: 1px #CCCCCC solid;
+}
+.simpleTable tr th {
+	/*background-color: #99CCCC;*/
+	background-color: #F1E6C0;
+	color: black;
+}
+.simpleTable tr td.left {
+	width: 150px;
+	vertical-align: top;
+	font-weight: bold;
+	padding-left: 4px;
+	/*background-color: #DDE4E5;*/
+	background-color: #AA7DD4;
+	color: #F1E6C0;
+}
+.simpleTable tr td.right {
+	vertical-align: top;
+	padding-left: 4px;
+}
+/* ----------------------------------------------- 
+ * listing data using table
+ *----------------------------------------------- */ 
+table.simpleList { 
+	width: 100%;
+	border-spacing: 0px;
+	background-color: #fafafa;
+	border: 1px #CCCCCC solid;
+	border-collapse: collapse; 
+}
+table.simpleList tr th { 
+	/*background-color: #99CCCC;*/
+	background-color: #F1E6C0;
+	/*border: 1px #000000 solid;*/
+	font-weight: bold;
+	font-size: 12px;
+	color: #404040; 
+	text-align: left;
+	text-indent: 4px;
+}
+table.simpleList tr td {
+	/*border-bottom: 1px #6699CC dotted;*/
+	border-bottom: 1px #996AC5 dotted;
+	text-align: left;
+	color: #404040;
+	background-color: #fafafa;
+	padding: 4px 0px 4px 8px; 
+}
+table.simpleList tr td.listPagination {
+	text-align: center;
+}
+.green {
+	color: green;
+}
+.red {
+	color: red;
+}

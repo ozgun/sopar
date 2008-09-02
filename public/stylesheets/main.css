@@ -1,0 +1,129 @@
+#container {
+	
+}
+#leftSideBar {
+	background-color: yellow;
+}
+#middleColumn {
+	background-color: #F4F1F1;
+}
+#rightSideBar {
+	background-color: #cccccc;
+	height: 100%;
+}
+#header {
+	background-color: #abcdef;
+}
+#footer {
+	text-align: center;
+}
+#statusMessage {
+	
+}
+#askQuestion {
+	height: 50px;
+	background-color: #aaaabb;
+}
+#yourQuestions {
+	height: 50px;
+	background-color: #aaaabb;
+}
+#authors {
+	background-color: #ccccaa;
+}
+
+.center {
+	text-align: center;
+}
+#uiPageTitle {
+	text-align: center;
+}
+.article {
+	
+}
+.articleTitle {
+	font-weight: bold;
+}
+.articleRow {
+	border: 1px solid #cccccc;
+}
+.articleTh a {
+	/*text-decoration: none;*/
+}
+.articleTags {
+	color: gray;
+}
+.articleBody {
+	font-size: 10pt; 
+	vertical-align: top; 
+	color: black; 
+	font-family: Verdana
+}
+.articleDate {
+	text-align: left;
+	color: gray;
+}
+.articleContinue {
+	text-align: right;
+	font-weight: bold;
+}
+#uiPagination {
+	text-align: center;
+}
+#archive {
+	background-color: green;
+}
+#menu {
+
+}
+.menuItem {
+	border-bottom: 1px solid #F2F2F2;
+}
+.menuItem:hover {
+	background-color: #F2F2F2;
+}
+.rssFeeds {
+	background-color: orange;
+}
+.pageBody {
+	
+}
+.continue {
+	text-align: right;
+	font-weight: bold;
+}
+.pubDate {
+	text-align: left;
+	color: gray;
+}
+.tag {
+	background-color: #FFFFCC;
+}
+.tags, .tags a {
+	color: gray;
+	text-decoration: none;
+}
+.imageHelp {
+	float: left;
+	margin-right: 5px;
+}
+/* ----------------------------------------------- 
+ * simple table using table tag 
+ *----------------------------------------------- */
+.simpleTable {
+	
+}
+.simpleTable tr th {
+	
+}
+.simpleTable tr td.left {
+	width: 120px;
+	vertical-align: top;
+}
+.simpleTable tr td.right {
+	vertical-align: top;
+}
+.formError {
+	font-weight: bold;
+	color: red;
+}
