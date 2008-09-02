@@ -9,7 +9,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080902022045) do
+ActiveRecord::Schema.define(:version => 20080902042538) do
+
+  create_table "site_prefs", :force => true do |t|
+    t.string   "title"
+    t.string   "slogan"
+    t.string   "email"
+    t.string   "domain"
+    t.text     "footer"
+    t.text     "sidebar"
+    t.text     "google_analytics"
+    t.text     "google_adsense"
+    t.text     "gtalk_badge"
+    t.text     "links"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id",        :limit => 11
