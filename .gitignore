@@ -1,0 +1,6 @@
+tmp/**/*
+log/*.log
+db/*.sqlite3
+config/database.yml
+.loadpath
+.project
