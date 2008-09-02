@@ -4,3 +4,5 @@ db/*.sqlite3
 config/database.yml
 .loadpath
 .project
+var/data/*
+public/images/captcha/*
