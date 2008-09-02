@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080902015718) do
+ActiveRecord::Schema.define(:version => 20080902022045) do
 
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id",        :limit => 11
@@ -24,5 +24,25 @@ ActiveRecord::Schema.define(:version => 20080902015718) do
   create_table "tags", :force => true do |t|
     t.string "name"
   end
+
+  create_table "users", :force => true do |t|
+    t.string   "username",                  :limit => 40
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "first_name",                :limit => 50
+    t.string   "last_name",                 :limit => 50
+    t.text     "biography"
+    t.datetime "last_logged_in_at"
+    t.datetime "remember_token_expires_at"
+    t.string   "remember_token"
+    t.string   "salt"
+    t.integer  "deactivated",               :limit => 1,  :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end
