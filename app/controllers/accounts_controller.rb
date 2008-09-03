@@ -47,7 +47,7 @@ class AccountsController < ApplicationController
   end
 
   def redirect_logged_in_user
-    redirect_to "/" if session[:user_id]
+    redirect_to admin_user_url(session[:user_id]) if session[:user_id]
   end
 
 end
