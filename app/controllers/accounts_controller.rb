@@ -24,7 +24,7 @@ class AccountsController < ApplicationController
         delete_cookies
       end
       #redirect_user(user)
-      redirect_to "/"
+      redirect_to admin_user_url(user)
     else
       #logger.debug("********************************************")
       flash[:warning] = "Error! Try again!"

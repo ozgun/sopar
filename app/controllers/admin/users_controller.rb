@@ -2,6 +2,10 @@ class Admin::UsersController < ApplicationController
   layout "admin"
   before_filter :login_required
 
+  def show
+    @user = User.find(params[:id]) 
+  end
+
   def edit
     @user = User.find(params[:id]) 
   rescue Exception => e
@@ -36,5 +40,6 @@ class Admin::UsersController < ApplicationController
       render :action => "edit", :id => @user.id
     end
   end
+
 
 end
