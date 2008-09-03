@@ -12,7 +12,7 @@ class Admin::SitePrefsController < ApplicationController
 
   def update
     @site_pref = SitePref.find :first
-    upload_file(params[:site_pref][:logo], "", "logo.png") unless params[:site_pref][:logo].nil? 
+    upload_file(params[:site_pref][:logo], "", "logo.png") unless params[:site_pref][:logo].blank? 
     @site_pref.update_attributes!(params[:site_pref])
     flash[:notice] = "Site preferences updated."
     redirect_to edit_admin_site_pref_url(@site_pref)
