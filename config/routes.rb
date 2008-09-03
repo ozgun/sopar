@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'logout', :controller => 'accounts', :action => 'logout'
 
   map.namespace :admin do |admin|
-    admin.resources :site_prefs
+    admin.resources :site_prefs, :collection => {:delete_logo => :get}
     admin.resources :users, :member => { :update_password => :put },
                             :has_many => [:articles]
     admin.resources :pages, :member => {:publish => :get, :unpublish => :get}

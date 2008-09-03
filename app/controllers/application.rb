@@ -68,4 +68,20 @@ class ApplicationController < ActionController::Base
   def login_required
     redirect_to "/" unless current_user
   end
+
+  def upload_file(file_obj, upload_dir, filename)
+    upload_dir = File.join("public", "images") if upload_dir.blank?
+    filename_with_path = File.join(upload_dir, filename)
+    File.open(filename_with_path, "wb") { |f| f.write(file_obj.read) }
+  rescue Exception => e
+    raise e
+  end
+
+  def delete_file(filename_with_full_path)
+    #filename_with_full_path = "public/images/logo.png"
+    File.delete(filename_with_full_path) if File.exists?(filename_with_full_path)
+  rescue Exception => e
+    raise e
+  end
+
 end

@@ -1,0 +1,6 @@
+page.replace_html :logoDeleteMsg, ""
+if flash[:warning] 
+  page.replace_html :logoDeleteMsg, warning_message(flash[:warning])
+else
+  page.replace_html :currentLogo, notice_message(flash[:notice])
+end

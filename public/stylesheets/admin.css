@@ -123,9 +123,11 @@ table.simpleList tr td.listPagination {
 }
 .green {
 	color: green;
+  font-weight: bold;
 }
 .red {
 	color: red;
+  font-weight: bold;
 }
 .header {
   background-color: #cccccc;

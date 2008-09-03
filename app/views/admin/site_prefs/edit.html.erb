@@ -1,6 +1,6 @@
 <% admin_page_title("Site Preferences") %>
 <table class="simpleTable">
-<% form_for [:admin, @site_pref] do |f| %>
+  <% form_for [:admin, @site_pref], :html => {:multipart => true} do |f| %>
   <tr>
     <td class="left">Site Title</td>
     <td class="right">
@@ -53,6 +53,17 @@
     <td class="left">Gtalk Badge Code</td>
     <td class="right">
       <%= f.text_area :gtalk_badge, :class => "smallTextArea" %>  
+    </td>
+  </tr>
+  <tr>
+    <td class="left">Current Logo</td>
+    <td id="currentLogo" class="right"><%= show_logo %><br /><%= delete_logo_link %></td>
+    <td id="logoDeleteMsg">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="left">Update Logo</td>
+    <td class="right">
+      <%= f.file_field :logo %>  
     </td>
   </tr>
   <tr>

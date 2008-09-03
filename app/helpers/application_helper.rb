@@ -15,5 +15,20 @@ module ApplicationHelper
     '</button>'
   end
 
+  def show_logo
+    image_tag "logo.png" if logo_exists?
+  end
+ 
+  def logo_exists?
+    File.exists?("public/images/logo.png")
+  end
+
+  def notice_message(msg)
+    "<span class=\"green\">#{msg}</span>"
+  end
+
+  def warning_message(msg)
+    "<span class=\"red\">#{msg}</span>"
+  end
   
 end

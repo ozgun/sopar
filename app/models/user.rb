@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   EMAIL_REGEX = /\A[A-Z0-9\._%-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}\z/i
   USERNAME_REGEX = /^[a-z0-9_]+$/i
 
-  #Virtaul attribute for password 
+  #Virtaul attributes
   attr_accessor :password, :new_password
 
   #Allow only following attributes updated or created with mass-updates
