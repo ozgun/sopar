@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of :username, :email
   validates_length_of :username, :within => 4..40
+  validates_format_of :username, :with => USERNAME_REGEX
   validates_uniqueness_of  :username, :email, :case_sensitive => :false
   with_options :if => :password_required? do |user|
     user.validates_presence_of :password
@@ -97,7 +98,7 @@ class User < ActiveRecord::Base
 
   def update_password(password, password_confirmation)
     if password.blank? or password_confirmation.blank?
-      self.errors.add("password", "Can't be empty!")
+      self.errors.add("password", "can't be blank!")
       return false
     else
       self.update_attributes!(:password => password, :password_confirmation => password_confirmation)

@@ -41,9 +41,10 @@
   background-color: white
 }
 .fieldWithErrors {
+/*
   padding: 2px;
   background-color: red;
-  display: table;
+  display: table;*/
 }
 .formError {
 	font-weight: bold;

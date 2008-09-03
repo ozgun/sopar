@@ -1,0 +1,54 @@
+<% admin_page_title("Profile") %>
+<table class="simpleTable">
+	<% form_for([:admin, @user], :html => { :multipart => true }) do |f| %>
+	<tr><th colspan="3">Edit Profile</th></tr>
+	<tr>
+		<td class="left">Username</td>
+    <td class="right"><%= f.text_field :username, :class => "text" %></td>
+    <td><%= f.error_message_on :username, "Username "%></td> 
+	</tr>
+	<tr>
+		<td class="left">First Name</td>
+		<td class="right" style="width: 350px"><%= f.text_field :first_name, :class => "text" %></td>
+    <td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="left">Last Name</td>
+		<td class="right"><%= f.text_field :last_name, :class => "text" %></td>
+    <td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="left">E-mail</td>
+    <td class="right" style="width: 350px"><%= f.text_field :email, :class => "text" %></td>
+    <td><%= f.error_message_on :email, "Email " %></td>
+	</tr>
+	<tr>
+		<td class="left">&nbsp;</td>
+		<td class="right"><%= fancy_submit_button "Update" %></td>
+    <td>&nbsp;</td>
+	</tr>
+<% end %>
+</table>
+
+<table class="simpleTable">
+	<tr><th colspan="3">Change Password</th></tr>
+	<% form_for([:admin, @user], 
+		:url => { :controller=>"admin/users", :action=>"update_password" }) do |f| %>
+	<tr>
+		<td class="left">New Password</td>
+    <td class="right" style="width: 350px"><%= f.password_field :new_password, :class => "text" %></td>
+    <td><%= f.error_message_on :password, "Password " %></td> 
+	</tr>
+	<tr>
+		<td class="left">Re-type New Password</td>
+		<td class="right"><%= f.password_field :password_confirmation, :class => "text" %>
+    <td>&nbsp;</td>
+		</td>
+	</tr>
+	<tr>
+		<td class="left">&nbsp;</td>
+		<td class="right"><%= fancy_submit_button "Update Password" %></td>
+    <td>&nbsp;</td>
+	</tr>
+	<% end %>
+</table>

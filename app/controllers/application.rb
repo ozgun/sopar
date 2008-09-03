@@ -58,9 +58,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    logger.debug("************** current_user ******************")
     if session[:user_id]
-      logger.debug("************** current_user session[:user_id] *********")
       @current_user ||= User.find(:first, :conditions => ["id=? AND deactivated=0", session[:user_id]])
     else
       return false
@@ -68,7 +66,6 @@ class ApplicationController < ActionController::Base
   end
 
   def login_required
-    logger.debug("************** login_required ******************")
     redirect_to "/" unless current_user
   end
 end

@@ -65,3 +65,5 @@ Rails::Initializer.run do |config|
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
 end
+
+COMMON_ERROR_MSG = "Error! Please correct the errors and try again!"
