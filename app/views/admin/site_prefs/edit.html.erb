@@ -1,0 +1,65 @@
+<% admin_page_title("Site Preferences") %>
+<table class="simpleTable">
+<% form_for [:admin, @site_pref] do |f| %>
+  <tr>
+    <td class="left">Site Title</td>
+    <td class="right">
+      <%= f.text_field :title, :class => "text" %>  
+    </td>
+  </tr>
+  <tr>
+    <td class="left">Site Slogan</td>
+    <td class="right">
+      <%= f.text_field :slogan, :class => "text" %>  
+    </td>
+  </tr>
+  <tr>
+    <td class="left">Email Address</td>
+    <td class="right">
+      <%= f.text_field :email, :class => "text" %>  
+    </td>
+  </tr>
+  <tr>
+    <td class="left">Site Domain</td>
+    <td class="right">
+      <%= f.text_field :domain, :class => "text" %>  
+    </td>
+  </tr>
+  <tr>
+    <td class="left">Sidebar</td>
+    <td class="right">
+      <%= f.text_area :sidebar, :class => "smallTextArea" %>  
+    </td>
+  </tr>
+  <tr>
+    <td class="left">External Links</td>
+    <td class="right">
+      <%= f.text_area :links, :class => "smallTextArea" %>  
+    </td>
+  </tr>
+  <tr>
+    <td class="left">Google Analytics Code</td>
+    <td class="right">
+      <%= f.text_area :google_analytics, :class => "smallTextArea" %>  
+    </td>
+  </tr>
+  <tr>
+    <td class="left">Google Adsense Code</td>
+    <td class="right">
+      <%= f.text_area :google_adsense, :class => "smallTextArea" %>  
+    </td>
+  </tr>
+  <tr>
+    <td class="left">Gtalk Badge Code</td>
+    <td class="right">
+      <%= f.text_area :gtalk_badge, :class => "smallTextArea" %>  
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td class="right">
+      <%= fancy_submit_button("Update") %>
+    </td>
+  </tr>
+<% end %>
+</table>

@@ -126,3 +126,13 @@ table.simpleList tr td.listPagination {
 .red {
 	color: red;
 }
+.header {
+  background-color: #cccccc;
+}
+.userBar {
+  text-align: right;
+}
+.smallTextArea {
+  height: 50px;
+  width: 500px;
+}

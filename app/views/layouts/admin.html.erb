@@ -4,7 +4,7 @@
   <head> 
   <meta http-equiv="X-UA-Compatible" content="IE=7" />
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title>Control Panel</title>
+  <title>SOPAR - Control Panel</title>
   <%= stylesheet_link_tag 'blueprint/screen', :media => "screen, projection" %>
   <%= stylesheet_link_tag 'blueprint/print', :media => "print" %>
   <!--[if IE]>
@@ -18,17 +18,32 @@
 	
   <div class="container" id="container">
 	
-	<div class="span-24" id="header" style="background-color: #575757">
-		<h1 style="color: #F1E6C0;">Control Panel</h1>
-	</div>
+    <div class="span-24 header">
+	    <div class="span-22">
+        <h1>SOPAR - <em>Control Panel</em></h1>
+	    </div>
+      <div class="span-2 last userBar">
+        <small><%= link_to "admin", "/" %></small><%#= current_user.username %>
+      </div>
+    </div>
 
 	<div class="span-24">
     <h3>
-    Menu 
+      <%= link_to "Pages", "/" %> |
+      <%= link_to "Articles", "/" %> |
+      <%= link_to "Projects", "/" %> |
+      <%= link_to "Preferences", edit_admin_site_pref_url(1) %> |
+      <%= link_to "Profile", "/" %> |
+      <%= link_to "Logout", "/logout" %>
+
     </h3>
   </div>
+
+  <!-- page title -->
+  <%= yield(:title) %>
 	
 	<!-- status messages -->
+  <% unless flash.blank? %>
   	<div id="statusMessage" class="span-24">
     <% flash.each do |key, msg| %>
 	<% cls = (key.to_s == "warning") ? "error" : "success"  %>
@@ -36,6 +51,7 @@
     <% end %>
 	<% flash.discard %>
   	</div>
+  <% end %>
   
   <!-- content -->
   <div id="content" class="span-24">
