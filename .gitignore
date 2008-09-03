@@ -6,3 +6,4 @@ config/database.yml
 .project
 var/data/*
 public/images/captcha/*
+public/images/logo.png
