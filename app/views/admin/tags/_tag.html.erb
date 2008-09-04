@@ -1,0 +1,23 @@
+<tr id="tag_<%= tag.id %>" style="height: 36px">
+	<td id="tag_title_<%=tag.id%>">
+		<%= h tag.name %>
+	</td>
+	<td>
+		<span id="tag_edit_<%=tag.id%>" style="display: none">
+		<% remote_form_for [:admin, tag] do |f| %>
+      <div class="span-8"><%= f.text_field :name, :class => "text" %></div>
+      <div class="last">
+			  <%= fancy_submit_button "Update" %>
+			  <span id="editStatus_<%=tag.id%>"></span>
+      </div>
+		<% end %>
+	</td>
+	<td>
+		<%= link_to image_tag("accept.png"), admin_tag_url(tag) %>
+		<%= link_to_function image_tag("edit.png", :title => "Update", :alt => "Update"),
+			"Element.toggle('tag_edit_#{tag.id}')" %>
+		<%= link_to_remote image_tag("delete.png", :alt => "Delete", :title => "Delete"), 
+			:url => "/admin/tags/#{tag.id}",
+			:method => :delete, :confirm => "Are you sure?" %>
+	</td>
+</tr>

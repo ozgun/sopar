@@ -1,0 +1,15 @@
+<% admin_page_title("Tags") %>
+<div id="statusMessage" style="display:none"></div><br />
+
+<% if @tag %>
+<h3>Tag: <%= h @tag.name %></h3>
+<% if @articles and @articles.size > 0 %>
+<table class="simpleList">
+	 <% @articles.each do |article| %>
+	<tr>
+		<td><%= link_to h(article.title), admin_article_url(article) %></td>
+	</tr>
+	<% end %>
+</table>
+<% end %>
+<% end %>

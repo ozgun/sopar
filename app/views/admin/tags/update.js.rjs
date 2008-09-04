@@ -1,0 +1,6 @@
+unless @tag.errors.empty?
+  page.replace_html "editStatus_#{@tag.id}", warning_message(@tag.errors.on(:name))
+else
+  page.replace_html "tag_title_#{@tag.id}", @tag.name
+  page.replace_html "editStatus_#{@tag.id}", notice_message('Tag updated') 
+end

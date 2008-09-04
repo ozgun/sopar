@@ -1,0 +1,28 @@
+<% admin_page_title("Tags") %>
+<div id="statusMessage" style="display:none"></div><br />
+
+<% if false %>
+<div class="span-24">
+	<%= render :partial => "search_form" %>
+</div>
+<% end %>
+
+<div class="span-24">
+<table class="simpleList">
+	<tr>
+		<th style="width: 200px">Tag</th>
+		<th>&nbsp;</th>
+		<th style="width: 80px">&nbsp;</th>
+	</tr>
+	<tbody id="tags">
+	<% if @tags.size > 0 %>
+		<%= render :partial => "tag", :collection => @tags %>
+	<% end %>
+	</tbody>
+	<tr>
+	<td colspan="3" class="listPagination">
+		<%= custom_pagination(@tags) %>
+	</td>
+</tr>
+</table>
+</div>

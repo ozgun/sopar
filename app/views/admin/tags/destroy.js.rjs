@@ -1,0 +1,3 @@
+page["tag_#{@id}"].visual_effect :fade
+page.replace_html :statusMessage, fancy_notice_message('Tag deleted')
+page[:statusMessage].appear
