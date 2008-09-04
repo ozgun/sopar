@@ -1,0 +1,29 @@
+	<tr>
+		<td class="left">Title</td>
+		<td class="right" style="width: 420px"><%= f.text_field :title, :size => 60, :class => "text" %></td>
+    <td class="errorCol"><%= f.error_message_on :title %></td>
+	</tr>
+	<tr>
+		<td class="left">Category</td>
+		<td class="right">
+			 	<%= f.select :category_id, Category.find(:all).collect {|c| [ c.title, c.id ] }%>
+		</td>
+    <td class="errorCol"><%= f.error_message_on :category_id %></td>
+	</tr>
+	<tr>
+		<td class="left">Tags</td>
+		<td class="right">
+			<%= f.text_field :tag_list, :size => 60, :class => "text" %><br />
+      Examples: linux, ruby, myslq, ruyb on rails, ror
+		</td>
+    <td class="errorCol">&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="left">Body</td>
+		<td class="right">
+			 <%= f.text_area :body, :cols => 80, :rows => 40, :style => "width: 400px; height: 500px" %>
+		</td>
+    <td class="errorCol">
+    <iframe src="/textile_usage.html" style="width: 330px; height: 500px"></iframe>
+    </td>
+	</tr>

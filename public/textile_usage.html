@@ -1,0 +1,167 @@
+<head>
+	<link href="/stylesheets/blueprint/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <!--[if IE]>
+  	<link href="/stylesheets/blueprint/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <![endif]-->
+  <link href="/stylesheets/admin.css" media="screen" rel="stylesheet" type="text/css" />
+</head>
+
+<table style="background-color: #E8E4D9; cell-spacing: 2px">
+  <tr>
+    <th>Textile</th>
+    <th>HTML</th>
+
+    <tr><th colspan="2">Phrase modifiers</th></tr>
+
+	<tr>
+		<td> <code>_emphasized_</code> </td>
+		<td> <em>emphasized</em> </td>
+	</tr>
+	<tr>
+		<td> <code>__italic__</code> </td>
+		<td> <i>italic</i> </td>
+	</tr>
+	<tr>
+		<td> <code>*strong*</code> </td>
+		<td> <strong>strong</strong> </td>
+	</tr>
+	<tr>
+		<td> <code>**bold**</code> </td>
+		<td> <b>strong</b> </td>
+	</tr>
+ 	<tr>
+		<td> <code>%span%</code> </td>
+    <td> <span>Span</span></td>
+	</tr>
+ 	<tr>
+		<td> <code>@code@</code> </td>
+    <td> <code>code</code></td>
+	</tr>
+
+  <tr><th colspan="2">Links &amp; Images</th></tr>
+
+	<tr>
+		<td> <code>"google":http://google.com</code> </td>
+		<td> <a href="http://www.google.com">google</a> </td>
+	</tr>
+
+	<tr>
+		<td> <code>!/images/rails.png!</code> </td>
+		<td> <img src="/images/rails.png" /> </td>
+	</tr>
+
+	<tr>
+		<td> <code>!/images/rails.png!:http://..</code> </td>
+		<td> <a href="http://..."><img src="/images/rails.png" /></a></td>
+	</tr>
+
+  <tr><th colspan="2">Block modifiers:</th></tr>
+
+ 	<tr>
+		<td> <code>h6. Header 6</code> </td>
+    <td> <h6>Header 6</h6></td>
+	</tr>
+ 	<tr>
+		<td> <code>bq. Blockquote</code> </td>
+    <td> <blockquote>Blockquote</blockquote></td>
+	</tr>
+ 	<tr>
+		<td> <code>p. Paragraph</code> </td>
+    <td> Paragraph</td>
+	</tr>
+ 	<tr>
+		<td> <code>pre. Pre</code> </td>
+    <td> Pre</td>
+	</tr>
+	<tr>
+		<td> <code>* an item</code><br><code>* and another</code> </td>
+		<td> <ul><li>an item</li><li>and another</li></ul> </td>
+	</tr>
+	<tr>
+		<td> <code># one</code><br><code># two</code> </td>
+    <td> <ol><li>one</li><li>two</li></td>
+  </tr>
+
+
+  <tr><th colspan="2">Punctuation:</th></tr>
+
+  <tr>
+		<td> <code>foo(tm)</code></td>
+    <td> foo&#8482;</td>
+  </tr>
+
+  <tr>
+		<td> <code>foo(r)</code></td>
+    <td> foo&#174;</td>
+  </tr>
+
+  <tr>
+		<td> <code>foo(c)</code></td>
+    <td> foo&#169;</td>
+  </tr>
+
+  <tr><th colspan="2">Alignment::</th></tr>
+
+  <tr>
+		<td> <code>&gt;</code></td>
+    <td> right</td>
+  </tr>
+  <tr>
+		<td> <code>&lt;</code></td>
+    <td> left</td>
+  </tr>
+  <tr>
+		<td> <code>=</code></td>
+    <td> center</td>
+  </tr>
+  <tr>
+		<td> <code>&lt;&gt;</code></td>
+    <td> justify</td>
+  </tr>
+
+
+  <tr><th colspan="2">Raw HTML</th></tr>
+  <tr>
+		<td> <code>==no &lt;b&gt;textile&lt;/b&gt;==</code></td>
+    <td> </td>
+  </tr>
+  <tr>
+		<td> <code>notextile. &lt;b&gt;no textile&lt;/b&gt;</code></td>
+    <td> </td>
+  </tr>
+
+  <tr><th colspan="2">Attributes &amp; CSS Styles</th></tr>
+  <tr>
+		<td> <code>p(example1). An example</code></td>
+		<td> p tag with "example1" class</td>
+  </tr>
+  <tr>
+		<td> <code>p(#example2). An example</code></td>
+		<td> p tag with "example2" id</td>
+  </tr>
+  <tr>
+		<td> <code>p(example1#example2). An example</code></td>
+		<td> p tag with "example2" id and "example1" class</td>
+  </tr>
+  <tr>
+		<td> <code>%{color:red}Red%</code></td>
+		<td> <span style="color:red">Red</span></td>
+  </tr>
+
+
+	<tr>
+		<td colspan="2">
+			Other References		
+		</td>
+	</tr>
+
+
+
+	<tr>
+		<td colspan="2">
+				http://hobix.com/textile/quick.html <br />		
+				http://hobix.com/textile/
+		</td>
+	</tr>
+
+</table>

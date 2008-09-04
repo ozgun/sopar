@@ -1,5 +1,5 @@
 class Category < ActiveRecord::Base
-  #has_many :articles, :dependent => :destroy
+  has_many :articles, :dependent => :destroy
   
   validates_uniqueness_of :title, :message => "Category exists!"
   validates_presence_of :title

@@ -1,0 +1,23 @@
+<% admin_page_title("Articles") %>
+<div id="statusMessage" style="display:none"></div><br />
+<div class="span-24"><%= link_to "Back to Articles", admin_articles_url %> |
+<% if @article.is_published == 0 %>
+  <%= link_to "Publish this article", publish_admin_article_url(@article) %> |
+<% end %>
+<% if @article.is_published == 1 %>
+  <%= link_to "Un-publish this article", unpublish_admin_article_url(@article) %> |
+<% end %>
+<%= link_to "Delete this article", admin_article_url(@article), :confirm => "Are you sure", :method => :delete %> 
+</div>
+<hr />
+<table class="simpleTable">
+<% form_for [:admin, @article], :url => {:action => "update"} do |f| %>
+	<tr><th colspan="3">Edit Article</th></tr>
+  <%= render :partial => "form", :locals => {:f => f} %>
+	<tr>
+		<td class="left">&nbsp;</td>
+		<td class="right"><%= fancy_submit_button "Update" %></td>
+    <td class="errorCol">&nbsp;</td>
+	</tr>
+<% end %>
+</table>

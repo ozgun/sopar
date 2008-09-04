@@ -6,17 +6,18 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'logout', :controller => 'accounts', :action => 'logout'
 
   map.namespace :admin do |admin|
-    admin.resources :site_prefs, :collection => {:delete_logo => :get}
-    admin.resources :users, :member => { :update_password => :put },
-                            :has_many => [:articles]
-    admin.resources :pages, :member => {:publish => :get, :unpublish => :get}
-    admin.resources :categories, :collection => {:reposition => :get}
-    admin.resources :articles, :member => {:publish => :get, :unpublish => :get},
-                               :has_many => [:comments]
-    admin.resources :comments, :member => {:publish => :get, :unpublish => :get}
+    admin.resources :site_prefs,  :collection => {:delete_logo => :get}
+    admin.resources :users,       :member => { :update_password => :put },
+                                  :has_many => [:articles]
+    admin.resources :pages,       :member => {:publish => :get, :unpublish => :get}
+    admin.resources :categories,  :collection => {:reposition => :get},
+                                  :has_many => [:articles]
+    admin.resources :articles,    :member => {:publish => :get, :unpublish => :get},
+                                  :has_many => [:comments]
+    admin.resources :comments,    :member => {:publish => :get, :unpublish => :get}
     admin.resources :projects
     admin.resources :assets
-    admin.resources :tags, :collection => {:search => :get}
+    admin.resources :tags,        :collection => {:search => :get}
    end
 
 

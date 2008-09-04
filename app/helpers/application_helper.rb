@@ -2,10 +2,8 @@
 module ApplicationHelper
 
   def admin_page_title(page_title)
-    #"<div class=\"adminPageTitle\">#{page_title}</div>"
-    #"<h2>#{page_title}</h2>"
     content_for :title do 
-      "<div span=\"24\" class=\"pageTitle\">#{page_title}</div>"
+      "<div class=\"span-24 pageTitle\">#{page_title}</div>"
     end
   end
 
@@ -38,5 +36,31 @@ module ApplicationHelper
   def fancy_warning_message(msg)
     "<div class=\"error\">#{msg}</div>"
   end
+
+  def time_my_format(time)
+    time.strftime("%d/%m/%Y  %H:%M") if time
+  end
   
+  def time_only_date(time)
+    time.strftime("%d/%m/%Y")
+  end
+
+  def print_tags(article)
+    ret = ""
+    if article.tag_list.size > 0
+      ret = "<div class=\"tags\"><em>Tags:</em> "
+      ret += render :partial => "tags/tag", :collection => article.tags, :spacer_template => "tags/tag_divider"
+      ret += "</div>"
+    end
+    return ret
+  end
+
+  def rss_description
+    "Feed description goes here..."
+  end
+
+  def custom_pagination(items)
+    will_paginate items, {:prev_label => "&laquo; Previous", :next_label => "Next &raquo;"}
+  end
+
 end

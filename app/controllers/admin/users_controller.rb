@@ -21,7 +21,6 @@ class Admin::UsersController < ApplicationController
     redirect_to edit_admin_user_url(@user)
   rescue ActiveRecord::RecordInvalid => e
     flash[:warning] = COMMON_ERROR_MSG
-    log_exception(e)
     render :action =>  :edit, :id => @user
   rescue Exception => e
     flash[:warning] = "Error!"

@@ -2,7 +2,9 @@
 	<td id="category_title_<%=category.id%>">
 		<%= h category.title %>
 	</td>
-  <td><%= category.articles_count %></td>
+  <td>
+      <%= link_to category.articles_count, admin_category_articles_url(category) %>
+  </td>
 	<td>
 		<span id="category_edit_<%=category.id%>" style="display: none">
 		<% remote_form_for [:admin, category] do |f| %>

@@ -1,0 +1,20 @@
+<% admin_page_title("Articles") %>
+<div id="statusMessage" style="display:none"></div><br />
+<div class="span-24"><%= link_to "Create Article", new_admin_article_url %></div>
+<hr />
+
+<table class="simpleList">
+<tr>
+	<th style="width: 320px;">Title</th>
+	<th style="width: 125px">Category</th>
+	<th style="width: 100px">Created at</th>
+	<th style="">Status</th>
+	<th style="width: 80px">&nbsp;</th>
+</tr>
+	<%= render :partial => "article", :collection => @articles %>
+<tr>
+	<td colspan="5" class="listPagination">
+		<%= custom_pagination(@articles) %>
+	</td>
+</tr>
+</table>

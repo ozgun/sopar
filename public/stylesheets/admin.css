@@ -90,6 +90,10 @@
 	vertical-align: top;
 	padding-left: 4px;
 }
+.errorCol {
+	vertical-align: top;
+}
+
 /* ----------------------------------------------- 
  * listing data using table
  *----------------------------------------------- */ 
