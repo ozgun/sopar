@@ -9,7 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080902042538) do
+ActiveRecord::Schema.define(:version => 20080904050248) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "title"
+    t.integer  "position",       :limit => 11
+    t.integer  "articles_count", :limit => 11, :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "site_prefs", :force => true do |t|
     t.string   "title"

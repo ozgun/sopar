@@ -1,0 +1,16 @@
+<div class="span-24" style="height: 40px;">
+	<% remote_form_for([:admin, @category],
+		:html => {:id => "new_category_form"},
+		:loading => "Form.disable('new_category_form'); Element.show('loading')",
+		:complete => "Element.hide('loading'); Form.enable('new_category_form');") do |f| %>
+
+	<div class="span-8"><%= f.text_field :title, :class => "text" %></div>
+  <div class="span-16 last" id="submitTag">
+    <%= fancy_submit_button "Add Category" %>
+    <span id="loading" style="display: none">Loading...</span>
+  </div>
+
+	<% end %>
+</div>
+
+<hr />

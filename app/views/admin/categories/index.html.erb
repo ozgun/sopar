@@ -1,0 +1,21 @@
+<% admin_page_title("Categories") %>
+<div id="statusMessage" style="display:none"></div><br />
+<div class="span-24"><%= link_to "Reposition Categories", reposition_admin_categories_url %></div>
+<hr />
+<%= render :partial => "add_category" %>
+
+<div class="span-24">
+<table class="simpleList">
+	<tr>
+		<th style="width: 200px">Category</th>
+		<th style="width: 20px">Articles</th>
+		<th>&nbsp;</th>
+		<th style="width: 60px">&nbsp;</th>
+	</tr>
+	<tbody id="categories">
+	<% if @categories.size > 0 %>
+		<%= render :partial => "category", :collection => @categories %>
+	<% end %>
+	</tbody>
+</table>
+</div>

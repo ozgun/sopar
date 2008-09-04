@@ -1,0 +1,7 @@
+page.replace_html :statusMessage, ""
+unless @category.errors.empty?
+  page.replace_html "editStatus_#{@category.id}", warning_message(@category.errors.on(:title))
+else
+  page.replace_html "category_title_#{@category.id}", @category.title
+  page.replace_html "editStatus_#{@category.id}", notice_message('Category updated') 
+end

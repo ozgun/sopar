@@ -1,0 +1,10 @@
+page.replace_html :statusMessage, ""
+unless @category.errors.empty?
+  page.replace_html :statusMessage, fancy_warning_message(@category.errors.on(:title))
+else
+  page.replace_html :statusMessage, fancy_notice_message("Category added") 
+  page.insert_html :top, :categories, :partial => "category", :object => @category
+  page[:new_category_form].reset
+  page["category_#{@category.id}"].visual_effect :pulsate
+end
+page[:statusMessage].appear

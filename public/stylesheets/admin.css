@@ -27,7 +27,7 @@
 	color:#264409;
 	border-color:#C6D880;
 }
-#pageTitle {
+.pageTitle {
   margin-bottom: 10px;
   margin-top: 5px;
   border-bottom: 2px solid gray;
@@ -138,4 +138,7 @@ table.simpleList tr td.listPagination {
 .smallTextArea {
   height: 50px;
   width: 500px;
+}
+.sortableItem {
+  cursor: move;
 }

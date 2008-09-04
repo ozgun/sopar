@@ -10,7 +10,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :users, :member => { :update_password => :put },
                             :has_many => [:articles]
     admin.resources :pages, :member => {:publish => :get, :unpublish => :get}
-    admin.resources :categories
+    admin.resources :categories, :collection => {:reposition => :get}
     admin.resources :articles, :member => {:publish => :get, :unpublish => :get},
                                :has_many => [:comments]
     admin.resources :comments, :member => {:publish => :get, :unpublish => :get}

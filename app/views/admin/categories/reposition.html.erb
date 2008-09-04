@@ -1,0 +1,14 @@
+<% admin_page_title("Categories") %>
+<div id="statusMessage" style="display:none"></div><br />
+<%= link_to "Back to Category List", admin_categories_url %>
+<hr />
+<div> Drag &amp; Drop to sort categories.</div>
+<br />
+<div class="span-24">
+  <ul id="my_list">
+    <% @categories.each do |category| %>
+      <li id="item_<%=category.id%>" class="sortableItem"><%= category.title %></li>
+    <% end %>
+  </ul>
+</div>
+<%= sortable_element("my_list", :url => { :action => "order" }) %>

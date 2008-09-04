@@ -1,0 +1,23 @@
+<tr id="category_<%= category.id %>" style="height: 36px">
+	<td id="category_title_<%=category.id%>">
+		<%= h category.title %>
+	</td>
+  <td><%= category.articles_count %></td>
+	<td>
+		<span id="category_edit_<%=category.id%>" style="display: none">
+		<% remote_form_for [:admin, category] do |f| %>
+      <div class="span-8"><%= f.text_field :title, :class => "text" %></div>
+      <div class="last">
+        <%= fancy_submit_button "Update" %>
+			  <span id="editStatus_<%=category.id%>"></span>
+      </div>
+		<% end %>
+	</td>
+	<td>
+		<%= link_to_function image_tag("edit.png", :title => "Update", :alt => "Update"),
+			"Element.toggle('category_edit_#{category.id}')" %>
+		<%= link_to_remote image_tag("delete.png", :alt => "Delete", :title => "Delete"), 
+			:url => "/admin/categories/#{category.id}",
+			:method => :delete, :confirm => "Are you sure?" %>
+	</td>
+</tr>

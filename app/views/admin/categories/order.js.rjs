@@ -1,0 +1,4 @@
+page.replace_html :statusMessage, ""
+page.replace_html :statusMessage, fancy_notice_message('Categories repositioned')
+page[:statusMessage].appear
+page[:my_list].visual_effect :highlight

@@ -5,7 +5,7 @@ module ApplicationHelper
     #"<div class=\"adminPageTitle\">#{page_title}</div>"
     #"<h2>#{page_title}</h2>"
     content_for :title do 
-      "<h2>#{page_title}</h2>"
+      "<div span=\"24\" class=\"pageTitle\">#{page_title}</div>"
     end
   end
 
@@ -29,6 +29,14 @@ module ApplicationHelper
 
   def warning_message(msg)
     "<span class=\"red\">#{msg}</span>"
+  end
+
+  def fancy_notice_message(msg)
+    "<div class=\"success\">#{msg}</div>"
+  end
+
+  def fancy_warning_message(msg)
+    "<div class=\"error\">#{msg}</div>"
   end
   
 end
