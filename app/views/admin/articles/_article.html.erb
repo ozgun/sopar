@@ -23,6 +23,7 @@
 		<%= link_to image_tag("edit.png", :title => "Update", :alt => "Update"),
 				  edit_admin_article_url(article) %>
 		<%= link_to image_tag("delete.png", :alt => "Delete", :title => "Delete"), 
-			    admin_article_url(article), :method => :delete, :confirm => "Are you sure?" %>
+          :url => "/admin/articles/#{article.id}"
+			    :method => :delete, :confirm => "Are you sure?" %>
 	</td>
 </tr>

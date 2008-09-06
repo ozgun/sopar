@@ -8,6 +8,7 @@ class Article < ActiveRecord::Base
   #Allow only following attributes updated or created with mass-updates
   attr_accessible :title, :body, :tag_list, :category_id
 
+  # Validations
   validates_presence_of :title
   validates_associated :category, :user
 

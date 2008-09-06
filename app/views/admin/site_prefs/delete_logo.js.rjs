@@ -4,3 +4,4 @@ if flash[:warning]
 else
   page.replace_html :currentLogo, notice_message(flash[:notice])
 end
+flash.discard

@@ -2,3 +2,4 @@ page.replace_html :statusMessage, ""
 page["category_#{@id}"].visual_effect :fade
 page.replace_html :statusMessage, fancy_notice_message('Category deleted!')
 page[:statusMessage].appear
+flash.discard

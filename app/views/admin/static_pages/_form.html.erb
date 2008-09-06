@@ -1,0 +1,14 @@
+<tr>
+	<td class="left">Title</td>
+	<td class="right" style="width: 420px"><%= f.text_field :title, :size => 60, :class => "text" %></td>
+  <td class="errorCol"><%= f.error_message_on :title %></td>
+</tr>
+<tr>
+	<td class="left">Body</td>
+	<td class="right">
+		 <%= f.text_area :body, :cols => 80, :rows => 40, :style => "width: 400px; height: 500px" %>
+	</td>
+  <td class="errorCol">
+  <iframe src="/textile_usage.html" style="width: 330px; height: 500px"></iframe>
+  </td>
+</tr>

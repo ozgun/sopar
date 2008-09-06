@@ -1,0 +1,19 @@
+<% admin_page_title("Pages") %>
+<div id="statusMessage" style="display:none"></div><br />
+<div class="span-24"><%= link_to "Create Page", new_admin_static_page_url %></div>
+<hr />
+
+<table class="simpleList">
+<tr>
+	<th style="width: 320px;">Title</th>
+	<th style="width: 100px">Created at</th>
+	<th style="">Status</th>
+	<th style="width: 80px">&nbsp;</th>
+</tr>
+	<%= render :partial => "static_page", :collection => @static_pages %>
+<tr>
+	<td colspan="5" class="listPagination">
+		<%= custom_pagination(@static_pages) %>
+	</td>
+</tr>
+</table>

@@ -5,3 +5,4 @@ else
   page.replace_html "category_title_#{@category.id}", @category.title
   page.replace_html "editStatus_#{@category.id}", notice_message('Category updated') 
 end
+flash.discard

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080904081517) do
+ActiveRecord::Schema.define(:version => 20080906134654) do
 
   create_table "articles", :force => true do |t|
     t.string   "title",                      :default => "", :null => false
@@ -40,6 +40,14 @@ ActiveRecord::Schema.define(:version => 20080904081517) do
     t.text     "google_adsense"
     t.text     "gtalk_badge"
     t.text     "links"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "static_pages", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "is_published", :limit => 1, :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -8,3 +8,4 @@ else
   page["category_#{@category.id}"].visual_effect :pulsate
 end
 page[:statusMessage].appear
+flash.discard

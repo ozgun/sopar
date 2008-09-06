@@ -55,13 +55,20 @@ class Admin::ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find params[:id]
+    @id = @article.id
     @article.destroy
     flash[:notice] = "Article deleted"
-    redirect_to admin_articles_url
+    respond_to do |format|
+      format.html { redirect_to admin_articles_url }
+      format.js
+    end
   rescue Exception => e
     log_exception(e)
-    flash[:warning] = "Error! Couldn't delete article!"
-    redirect_to admin_articles_url
+    flash[:warning] = "#{e.exception}"
+    respond_to do |format|
+      format.html { redirect_to admin_articles_url }
+      format.js
+    end
   end
 
 

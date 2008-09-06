@@ -1,0 +1,32 @@
+<% admin_page_title("Pages") %>
+<% if @static_page %>
+  <div class="span-24">
+    <%= link_to "Create Page", new_admin_static_page_url %> | 
+    <%= link_to "Edit this page", edit_admin_static_page_url(@static_page) %> | 
+    <% if @static_page.is_published == 0 %>
+      <%= link_to "Publish this page", publish_admin_static_page_url(@static_page) %> |
+    <% end %>
+    <% if @static_page.is_published == 1 %>
+      <%= link_to "Un-publish this page", unpublish_admin_static_page_url(@static_page) %> |
+    <% end %>
+    <%= link_to "Delete this page", admin_static_page_url(@static_page), :confirm => "Are you sure", :method => :delete %> 
+  </div>
+<hr />
+
+<table class="simpleTable">
+
+	<tr><th colspan="3">Page Details</th></tr>
+	<tr>
+		<td class="left">Title</td>
+		<td class="right" style="width: 420px"><%= h @static_page.title %></td>
+	</tr>
+	<tr>
+		<td class="left">Status</td>
+		<td class="right"><%= @static_page.status_description %></td>
+	</tr>
+	<tr>
+		<td class="left">Body</td>
+    <td class="right"><%= RedCloth.new(@static_page.body).to_html %></td>
+	</tr>
+<% end %>
+</table>
