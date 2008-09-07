@@ -1,0 +1,4 @@
+page["row_#{@id}"].visual_effect :fade
+page.replace_html :statusMessage, fancy_notice_message('File deleted')
+page[:statusMessage].appear
+flash.discard

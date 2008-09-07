@@ -1,0 +1,36 @@
+<% admin_page_title("Assets") %>
+<div id="statusMessage" style="display:none"></div><br />
+
+<div class="span-24">
+	<% form_tag("assets/create", :multipart => true) do %>
+	<div style="float: left;">
+		<%= file_field_tag :uploaded_data %>
+	</div>
+	<div style="float: left;">
+		&nbsp;<%= submit_tag "Upload File" %> (Max 10 MB)
+	</div>
+	<div class="spacer"></div>
+	<% end %>
+</div>
+
+<hr />
+<div class="span-24">
+<table class="simpleList">
+	<tr>
+		<th style="width: 500px">File</th>
+		<th style="width: 100px">Size</th>
+		<th style="widht: 125px">Created at</th>
+		<th style="width: 60px">&nbsp;</th>
+	</tr>
+	<tbody id="assets">
+	<% if @assets.size > 0 %>
+		<%= render :partial => "asset", :collection => @assets %>
+	<% end %>
+	</tbody>
+	<tr>
+		<td colspan="4" class="listPagination">
+			<%= custom_pagination(@assets) %>
+		</td>
+	</tr>
+</table>
+</div>
