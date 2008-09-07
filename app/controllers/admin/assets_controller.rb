@@ -8,7 +8,6 @@ class Admin::AssetsController < ApplicationController
   end  
   def create
     asset = Asset.new({:uploaded_data => params[:uploaded_data]})
-    #asset.user = current_user
     asset.save!
     flash[:notice] = "File uploaded."
     redirect_to :action => :index
