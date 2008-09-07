@@ -7,7 +7,7 @@ class CreateCategories < ActiveRecord::Migration
       t.timestamps
     end
     #Add Default Category
-    c = Category.new(:title => "Default Category", :position => 1)
+    c = Category.new(:title => "Uncategorized", :position => 1)
     c.id = 1
     c.save!
   end

@@ -5,7 +5,7 @@ class Admin::SitePrefsController < ApplicationController
   def edit
     @site_pref = SitePref.find :first
   rescue Exception => e
-    flash[:warning] = "Error!"
+    flash[:warning] = e.message
     log_exception(e)
     redirect_to "/"
   end
@@ -20,7 +20,7 @@ class Admin::SitePrefsController < ApplicationController
     flash[:warning] = COMMON_ERROR_MSG
     log_exception(e)
   rescue Exception => e
-    flash[:warning] = "Error!"
+    flash[:warning] = e.message
     log_exception(e)
     redirect_to edit_admin_site_pref_url(@site_pref)
   end

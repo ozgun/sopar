@@ -1,5 +1,9 @@
 page.replace_html :statusMessage, ""
-page["category_#{@id}"].visual_effect :fade
-page.replace_html :statusMessage, fancy_notice_message('Category deleted!')
+if flash[:warning]
+  page.replace_html :statusMessage, fancy_warning_message(flash[:warning])
+elsif flash[:notice]
+  page["category_#{@id}"].visual_effect :fade
+  page.replace_html :statusMessage, fancy_notice_message(flash[:notice])
+end
 page[:statusMessage].appear
 flash.discard

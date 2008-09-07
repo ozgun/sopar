@@ -9,7 +9,7 @@ class Admin::UsersController < ApplicationController
   def edit
     @user = User.find(params[:id]) 
   rescue Exception => e
-    flash[:warning] = "Error!"
+    flash[:warning] = e.message
     log_exception(e)
     redirect_to "/"
   end
@@ -23,7 +23,7 @@ class Admin::UsersController < ApplicationController
     flash[:warning] = COMMON_ERROR_MSG
     render :action =>  :edit, :id => @user
   rescue Exception => e
-    flash[:warning] = "Error!"
+    flash[:warning] = e.message
     log_exception(e)
     render :action =>  :edit, :id => @user
   end

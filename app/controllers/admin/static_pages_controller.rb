@@ -5,7 +5,7 @@ class Admin::StaticPagesController < ApplicationController
   def index
     @static_pages = StaticPage.paginate :per_page => 10, :page => params[:page], :order => "created_at DESC"
   rescue Exception => e
-    flash[:warning] = "Error!"
+    flash[:warning] = e.message
     log_exception(e)
   end
 
@@ -22,7 +22,7 @@ class Admin::StaticPagesController < ApplicationController
     flash[:warning] = COMMON_ERROR_MSG
     render :action =>  :new, :id => @static_page
   rescue Exception => e
-    flash[:warning] = "Error!"
+    flash[:warning] = e.message
     log_exception(e)
     redirect_to :action => :new
   end
@@ -45,7 +45,7 @@ class Admin::StaticPagesController < ApplicationController
     render :action =>  :edit, :id => @static_page
   rescue Exception => e
     log_exception(e)
-    flash[:warning] = "Error!"
+    flash[:warning] = e.message
     redirect_to admin_static_pages_url
   end
 
@@ -60,7 +60,7 @@ class Admin::StaticPagesController < ApplicationController
     end
   rescue Exception => e
     log_exception(e)
-    flash[:warning] = "#{e.exception}"
+    flash[:warning] = e.message
     respond_to do |format|
       format.html { redirect_to admin_static_pages_url }
       format.js
@@ -74,7 +74,7 @@ class Admin::StaticPagesController < ApplicationController
     redirect_to :back
   rescue Exception => e
     log_exception(e)
-    flash[:warning] = "Error!"
+    flash[:warning] = e.message
     redirect_to :back
   end
   
@@ -85,7 +85,7 @@ class Admin::StaticPagesController < ApplicationController
     redirect_to :back
   rescue Exception => e
     log_exception(e)
-    flash[:warning] = "Error!"
+    flash[:warning] = e.message
     redirect_to :back
   end
 

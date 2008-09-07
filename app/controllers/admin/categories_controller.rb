@@ -27,6 +27,13 @@ class Admin::CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @id = @category.id
     @category.destroy
+    flash[:notice] = "Category deleted"
+    respond_to do |format|
+      format.js
+    end
+  rescue Exception => e
+    log_exception(e)
+    flash[:warning] = e.message
     respond_to do |format|
       format.js
     end

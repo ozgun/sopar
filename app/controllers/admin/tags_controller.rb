@@ -5,7 +5,7 @@ class Admin::TagsController < ApplicationController
   def index
     @tags = Tag.paginate :per_page => 10, :page => params[:page], :order => "name DESC"
   rescue Exception => e
-    flash[:warning] = "Error!"
+    flash[:warning] = e.message
     log_exception(e)
   end
 
@@ -15,7 +15,7 @@ class Admin::TagsController < ApplicationController
     @articles = Article.find_tagged_with(@tag)
   rescue Exception => e
     log_exception(e)
-    flash[:warning] = "Error!"
+    flash[:warning] = e.message
     redirect_to :action => "index"
   end
   
@@ -23,7 +23,7 @@ class Admin::TagsController < ApplicationController
     @tags = Tag.find(:all, :conditions => ["name LIKE ?", "{params[:q]}%"])
   rescue Exception => e
     log_exception(e)
-    flash[:warning] = "Error!"
+    flash[:warning] = e.message
     redirect_to :action => "index"
   end
   

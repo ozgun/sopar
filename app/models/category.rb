@@ -4,10 +4,10 @@ class Category < ActiveRecord::Base
   validates_uniqueness_of :title, :message => "Category exists!"
   validates_presence_of :title
   
-  before_destroy :dont_delete_default_category
+  before_destroy :dont_delete_last_category
     
-  def dont_delete_default_category
-    raise "Can't delete default category!" if self.id == 1
+  def dont_delete_last_category
+    raise "Can't delete last category!" if Category.count == 1
   end
   
   def self.menu

@@ -13,7 +13,7 @@ class Admin::AssetsController < ApplicationController
     redirect_to :action => :index
   rescue Exception => e
     log_exception(e)
-    flash[:warning] = "#{e.message}"
+    flash[:warning] = e.message
     redirect_to :action => :index
   end
   

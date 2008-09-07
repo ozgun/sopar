@@ -64,7 +64,7 @@ class Admin::ArticlesController < ApplicationController
     end
   rescue Exception => e
     log_exception(e)
-    flash[:warning] = "#{e.exception}"
+    flash[:warning] = e.message
     respond_to do |format|
       format.html { redirect_to admin_articles_url }
       format.js
@@ -104,7 +104,7 @@ class Admin::ArticlesController < ApplicationController
     redirect_to :back
   rescue Exception => e
     log_exception(e)
-    flash[:warning] = e.exception
+    flash[:warning] = e.message
     redirect_to :back
   end
 
@@ -116,7 +116,7 @@ class Admin::ArticlesController < ApplicationController
     redirect_to :back
   rescue Exception => e
     log_exception(e)
-    flash[:warning] = e.exception
+    flash[:warning] = e.message
     redirect_to :back
   end
 

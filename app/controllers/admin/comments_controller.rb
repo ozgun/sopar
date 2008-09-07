@@ -7,7 +7,7 @@ class Admin::CommentsController < ApplicationController
     @comments = @article.comments.paginate :per_page => 10, :page => params[:page],
       :include => [:article], :order => "is_published ASC, created_at DESC"
   rescue Exception => e
-    flash[:warning] = "Error!"
+    flash[:warning] = e.message
     log_exception(e)
   end
 
@@ -16,7 +16,7 @@ class Admin::CommentsController < ApplicationController
     @comments = Comment.paginate :per_page => 10, :page => params[:page],
       :conditions => conditions, :include => [:article], :order => "is_published ASC, created_at DESC"
   rescue Exception => e
-    flash[:warning] = "Error!"
+    flash[:warning] = e.message
     log_exception(e)
   end
 
@@ -36,7 +36,7 @@ class Admin::CommentsController < ApplicationController
     flash[:warning] = COMMON_ERROR_MSG
     render :action =>  :new, :article_id => @article
   rescue Exception => e
-    flash[:warning] = "Error!"
+    flash[:warning] = e.message
     log_exception(e)
     redirect_to :action => :new, :article_id => @article
   end
@@ -45,15 +45,15 @@ class Admin::CommentsController < ApplicationController
     @article = Article.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
   rescue Exception => e
-    flash[:warning] = e.exception
     log_exception(e)
+    flash[:warning] = e.message
   end
 
   def edit
     @article = Article.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
   rescue Exception => e
-    flash[:warning] = e.exception
+    flash[:warning] = e.message
     log_exception(e)
   end
 
@@ -68,7 +68,7 @@ class Admin::CommentsController < ApplicationController
     render :action =>  :edit, :article_id => @article, :id => @comment
   rescue Exception => e
     log_exception(e)
-    flash[:warning] = "Error!"
+    flash[:warning] = e.message
     redirect_to recent_admin_comments_url
   end
 
@@ -84,7 +84,7 @@ class Admin::CommentsController < ApplicationController
     end
   rescue Exception => e
     log_exception(e)
-    flash[:warning] = "#{e.exception}"
+    flash[:warning] = e.message
     respond_to do |format|
       format.html { redirect_to recent_admin_comments_url }
       format.js
@@ -99,7 +99,7 @@ class Admin::CommentsController < ApplicationController
     redirect_to :back
   rescue Exception => e
     log_exception(e)
-    flash[:warning] = e.exception
+    flash[:warning] = e.message
     redirect_to :back
   end
   
@@ -110,7 +110,7 @@ class Admin::CommentsController < ApplicationController
     redirect_to :back
   rescue Exception => e
     log_exception(e)
-    flash[:warning] = e.exception
+    flash[:warning] = e.message
     redirect_to :back
   end
 
