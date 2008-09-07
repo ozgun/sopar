@@ -5,6 +5,9 @@
 	<td>
 		<%= link_to article.category.title, "articles?category_id=#{article.category_id}" %>
 	</td>
+  <td>
+    <%= link_to "#{article.comments_published} / #{article.comments_count}", admin_article_comments_url(article) %>
+  </td>
 	<td>
 		<%= time_only_date(article.created_at) %>
 	</td>
@@ -12,6 +15,8 @@
 		<%= article.status_description %>
 	</td>
 	<td>
+    <%= link_to image_tag("comment_add.png", :alt => "Add Comment", :title => "Add Comment"), 
+        new_admin_article_comment_url(article) %>
 		<% if article.is_published == 0 %>
 		<%= link_to image_tag("add.png", :title => "Publish", :alt => "Publish"),
 			    publish_admin_article_url(article) %>

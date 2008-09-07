@@ -12,9 +12,11 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :static_pages,       :member => {:publish => :get, :unpublish => :get}
     admin.resources :categories,  :collection => {:reposition => :get},
                                   :has_many => [:articles]
-    admin.resources :articles,    :member => {:publish => :get, :unpublish => :get},
+    admin.resources :articles,    :member => {:publish => :get, :unpublish => :get, 
+                                              :close_comments => :get, :open_comments => :get},
                                   :has_many => [:comments]
-    admin.resources :comments,    :member => {:publish => :get, :unpublish => :get}
+    admin.resources :comments,    :member => {:publish => :get, :unpublish => :get}, 
+                                  :collection => {:recent => :get} 
     admin.resources :projects
     admin.resources :assets
     admin.resources :tags,        :collection => {:search => :get}

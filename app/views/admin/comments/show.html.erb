@@ -1,0 +1,48 @@
+<% admin_page_title("Comments") %>
+<% if @article %>
+  <div class="span-24">
+    <%= link_to "Edit this comment", edit_admin_article_comment_url(@article, @comment) %> | 
+    <%= link_to "Reply to this comment", new_admin_article_comment_url(@article) %> | 
+    <% if @comment.is_published == 0 %>
+      <%= link_to "Publish this comment", publish_admin_comment_url(@comment) %> |
+    <% end %>
+    <% if @comment.is_published == 1 %>
+      <%= link_to "Un-publish this comment", unpublish_admin_comment_url(@comment) %> |
+    <% end %>
+    <%= link_to "Delete this comment", admin_comment_url(@comment), :confirm => "Are you sure", :method => :delete %> 
+  </div>
+<hr />
+
+<table class="simpleTable">
+
+	<tr><th colspan="3">Comment Details</th></tr>
+	<tr>
+		<td class="left">Article Title</td>
+		<td class="right"><%= link_to h(@article.title), admin_article_url(@article) %></td>
+	</tr>
+	<tr>
+		<td class="left">Status</td>
+		<td class="right"><%= @comment.status_description %></td>
+	</tr>
+	<tr>
+		<td class="left">Created at</td>
+		<td class="right"><%= time_only_date(@comment.created_at) %></td>
+	</tr>
+	<tr>
+		<td class="left">Commentator</td>
+    <td class="right"><%= h @comment.commentator %></td>
+	</tr>
+	<tr>
+		<td class="left">Commentator Email</td>
+		<td class="right"><%= h @comment.commentator_email %></td>
+	</tr>
+	<tr>
+		<td class="left">Commentator Website</td>
+		<td class="right"><%= h @comment.commentator_website %></td>
+	</tr>
+	<tr>
+		<td class="left">Comment</td>
+    <td class="right"><%= simple_format(h(@comment.body)) %></td>
+	</tr>
+<% end %>
+</table>

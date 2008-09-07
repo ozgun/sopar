@@ -9,14 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080906134654) do
+ActiveRecord::Schema.define(:version => 20080907062730) do
 
   create_table "articles", :force => true do |t|
-    t.string   "title",                      :default => "", :null => false
+    t.string   "title",                            :default => "", :null => false
     t.text     "body"
-    t.integer  "category_id",  :limit => 11,                 :null => false
-    t.integer  "user_id",      :limit => 11,                 :null => false
-    t.integer  "is_published", :limit => 1,  :default => 0
+    t.integer  "category_id",        :limit => 11,                 :null => false
+    t.integer  "user_id",            :limit => 11,                 :null => false
+    t.integer  "is_published",       :limit => 1,  :default => 0
+    t.integer  "comments_closed",    :limit => 1,  :default => 0
+    t.integer  "comments_count",     :limit => 11, :default => 0
+    t.integer  "comments_published", :limit => 11, :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -25,6 +28,18 @@ ActiveRecord::Schema.define(:version => 20080906134654) do
     t.string   "title"
     t.integer  "position",       :limit => 11
     t.integer  "articles_count", :limit => 11, :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "is_published",        :limit => 1,  :default => 0
+    t.integer  "article_id",          :limit => 11
+    t.string   "commentator"
+    t.string   "commentator_email"
+    t.string   "commentator_website"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -40,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20080906134654) do
     t.text     "google_adsense"
     t.text     "gtalk_badge"
     t.text     "links"
+    t.text     "twitter"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -77,6 +93,7 @@ ActiveRecord::Schema.define(:version => 20080906134654) do
     t.datetime "remember_token_expires_at"
     t.string   "remember_token"
     t.string   "salt"
+    t.string   "website"
     t.integer  "deactivated",               :limit => 1,  :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"

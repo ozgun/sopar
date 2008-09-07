@@ -72,6 +72,7 @@ class Admin::ArticlesController < ApplicationController
   end
 
 
+  #TODO: Do it with AJAX
   def publish
     @article = Article.find(params[:id])
     @article.change_publish_status(1)
@@ -83,6 +84,7 @@ class Admin::ArticlesController < ApplicationController
     redirect_to :back
   end
   
+  #TODO: Do it with AJAX
   def unpublish
     @article = Article.find(params[:id])
     @article.change_publish_status(0)
@@ -91,6 +93,30 @@ class Admin::ArticlesController < ApplicationController
   rescue Exception => e
     log_exception(e)
     flash[:warning] = "Error!"
+    redirect_to :back
+  end
+
+  #TODO: Do it with AJAX
+  def close_comments
+    @article = Article.find(params[:id])
+    @article.change_comments_status(1)
+    flash[:notice] = "Comments closed"
+    redirect_to :back
+  rescue Exception => e
+    log_exception(e)
+    flash[:warning] = e.exception
+    redirect_to :back
+  end
+
+  #TODO: Do it with AJAX
+  def open_comments
+    @article = Article.find(params[:id])
+    @article.change_comments_status(0)
+    flash[:notice] = "Comments allowed"
+    redirect_to :back
+  rescue Exception => e
+    log_exception(e)
+    flash[:warning] = e.exception
     redirect_to :back
   end
 

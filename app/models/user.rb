@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
   #Allow only following attributes updated or created with mass-updates
   attr_accessible :username, :email, :first_name, :last_name, :biography, 
-    :password, :password_confirmation
+    :password, :password_confirmation, :website
 
   validates_presence_of :username, :email
   validates_length_of :username, :within => 4..40

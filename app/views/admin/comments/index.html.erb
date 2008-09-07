@@ -1,0 +1,23 @@
+<% admin_page_title("Comments by Article") %>
+<div id="statusMessage" style="display:none"></div><br />
+<div class="span-24">
+  <%= link_to "Add Comment", new_admin_article_comment_url(@article) %>
+</div>
+<hr />
+
+<table class="simpleList">
+<tr>
+	<th style="width: 300px;">Comment</th>
+	<th style="width: 150px">Article</th>
+	<th style="width: 150px">Commentator</th>
+	<th style="width: 100px">Created at</th>
+	<th style="">Status</th>
+	<th style="width: 80px">&nbsp;</th>
+</tr>
+	<%= render :partial => "comment", :collection => @comments %>
+<tr>
+	<td colspan="6" class="listPagination">
+		<%= custom_pagination(@comments) %>
+	</td>
+</tr>
+</table>

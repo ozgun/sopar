@@ -1,13 +1,7 @@
 <% admin_page_title("Pages") %>
 <div id="statusMessage" style="display:none"></div><br />
-<div class="span-24"><%= link_to "Back to static_pages", admin_static_pages_url %> |
-<% if @static_page.is_published == 0 %>
-  <%= link_to "Publish this page", publish_admin_static_page_url(@static_page) %> |
-<% end %>
-<% if @static_page.is_published == 1 %>
-  <%= link_to "Un-publish this page", unpublish_admin_static_page_url(@static_page) %> |
-<% end %>
-<%= link_to "Delete this page", admin_static_page_url(@static_page), :confirm => "Are you sure", :method => :delete %> 
+<div class="span-24">
+  <%= link_to "Show this page", admin_static_page_url(@static_page) %>
 </div>
 <hr />
 <table class="simpleTable">

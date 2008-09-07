@@ -1,0 +1,39 @@
+<tr id="row_<%= comment.id %>">
+	<td>
+    <%= link_to_function truncate(h(comment.body), 50), "Effect.toggle('row_info_#{comment.id}', 'appear');" %>
+	</td>
+	<td>
+		<%= link_to comment.article.title, admin_article_url(comment.article) %>
+	</td>
+  <td>
+    <%= h comment.commentator  %>
+  </td>
+	<td>
+		<%= time_only_date(comment.created_at) %>
+	</td>
+	<td>
+		<%= comment.status_description %>
+	</td>
+	<td>
+    <%= link_to image_tag("go.png", :title => "Show", :alt => "Show"), 
+          admin_article_comment_url(comment.article, comment) %>
+		<% if comment.is_published == 0 %>
+		<%= link_to image_tag("add.png", :title => "Publish", :alt => "Publish"),
+			    publish_admin_comment_url(comment) %>
+		<% end %>
+		<% if comment.is_published == 1 %>
+		<%= link_to image_tag("cancel.png", :title => "Un-publish", :alt => "Un-publish"),
+			    unpublish_admin_comment_url(comment) %>
+		<% end %>
+		<%= link_to image_tag("edit.png", :title => "Update", :alt => "Update"),
+				  edit_admin_article_comment_url(comment.article, comment) %>
+		<%= link_to_remote image_tag("delete.png", :alt => "Delete", :title => "Delete"), 
+          :url => "/admin/comments/#{comment.id}",
+			    :method => :delete, :confirm => "Are you sure?" %>
+	</td>
+</tr>
+<tr id="row_info_<%=comment.id%>" style="display:none">
+  <td colspan="6">
+    <%= h comment.body %>
+  </td>
+</tr>

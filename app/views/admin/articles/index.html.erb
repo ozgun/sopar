@@ -7,13 +7,14 @@
 <tr>
 	<th style="width: 320px;">Title</th>
 	<th style="width: 125px">Category</th>
+	<th style="width: 100px">Comments</th>
 	<th style="width: 100px">Created at</th>
 	<th style="">Status</th>
 	<th style="width: 80px">&nbsp;</th>
 </tr>
 	<%= render :partial => "article", :collection => @articles %>
 <tr>
-	<td colspan="5" class="listPagination">
+	<td colspan="6" class="listPagination">
 		<%= custom_pagination(@articles) %>
 	</td>
 </tr>

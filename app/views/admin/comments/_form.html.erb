@@ -1,0 +1,28 @@
+	<tr>
+		<td class="left">Article Title</td>
+    <td class="right" style="width: 420px"><%= h @comment.article.title %></td>
+    <td class="errorCol"></td>
+	</tr>
+	<tr>
+		<td class="left">Name (Required)</td>
+		<td class="right"><%= f.text_field :commentator, :value => @current_user.fullname, :size => 60, :class => "text" %></td>
+    <td class="errorCol"><%= f.error_message_on :commentator %></td>
+	</tr>
+	<tr>
+		<td class="left">Email Address</td>
+    <td class="right"><%= f.text_field :commentator_email, :value => @current_user.email, :size => 60, :class => "text" %></td>
+    <td class="errorCol">Will not be published!</td>
+	</tr>
+	<tr>
+		<td class="left">Website</td>
+		<td class="right"><%= f.text_field :commentator_website, :value => @current_user.website, :size => 60, :class => "text" %></td>
+    <td class="errorCol"></td>
+	</tr>
+	<tr>
+		<td class="left">Comment (Required)</td>
+		<td class="right">
+			 <%= f.text_area :body, :cols => 80, :rows => 40, :style => "width: 400px; height: 300px" %>
+		</td>
+    <td class="errorCol"><%= f.error_message_on :body %>
+    </td>
+	</tr>

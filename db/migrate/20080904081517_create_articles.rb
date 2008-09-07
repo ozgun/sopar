@@ -4,7 +4,8 @@ class CreateArticles < ActiveRecord::Migration
       t.string :title, :null => false
       t.text :body
       t.references :category, :user, :null => false
-      t.integer :is_published, :limit => 1, :default => 0
+      t.integer :is_published, :comments_closed, :limit => 1, :default => 0
+      t.integer :comments_count, :comments_published, :default => 0
       t.timestamps
     end
   end

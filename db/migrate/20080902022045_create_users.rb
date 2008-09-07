@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :first_name, :last_name, :limit => 50
       t.text :biography
       t.datetime :last_logged_in_at, :remember_token_expires_at
-      t.string :remember_token, :salt
+      t.string :remember_token, :salt, :website
       t.integer :deactivated, :limit => 1, :default => 0
       t.timestamps
     end
@@ -18,7 +18,7 @@ class CreateUsers < ActiveRecord::Migration
     # Create default admin
     u = User.new(:username => "admin", :password => "admin", :password_confirmation => "admin", 
                  :email => "admin@example.com", :first_name => "Site", :last_name => "Admin",
-                 :biography => "Site Admin...")
+                 :biography => "Site Admin...", :website => "example.com")
     u.id = 1
     u.save!
   end

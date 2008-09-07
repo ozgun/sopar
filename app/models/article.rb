@@ -1,7 +1,7 @@
 class Article < ActiveRecord::Base
   belongs_to :category, :counter_cache => true
   belongs_to :user
-  #has_many :comments, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
 
   acts_as_taggable
 
@@ -20,9 +20,21 @@ class Article < ActiveRecord::Base
   def status_description
     self.is_published == 1 ? "<font class=\"green\">Published</font>" : "<font class=\"red\">Un-published</font>"
   end
+
+  def comments_status_description
+    self.comments_closed == 0 ? "<font class=\"green\">Allowed</font>" : "<font class=\"red\">Closed</font>"
+  end
+  
   
   def change_publish_status(new_status)
     self.is_published = new_status
+    self.save!
+  rescue Exception => e
+    raise e
+  end
+
+  def change_comments_status(new_status)
+    self.comments_closed = new_status
     self.save!
   rescue Exception => e
     raise e

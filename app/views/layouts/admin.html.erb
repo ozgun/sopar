@@ -24,9 +24,9 @@
 
 	<div class="span-24">
     <h3>
-      <%= @current_user.username %> &gt;&gt;  
       <%= link_to "Pages", admin_static_pages_url %> |
       <%= link_to "Articles", admin_articles_url %> |
+      <%= link_to "Comments", recent_admin_comments_url %> |
       <%= link_to "Projects", "/" %> |
       <%= link_to "Categories", admin_categories_url %> |
       <%= link_to "Tags", admin_tags_url %> |
@@ -34,7 +34,6 @@
       <%= link_to "Preferences", edit_admin_site_pref_url(1) %> |
       <%= link_to "Profile", edit_admin_user_url(@current_user) %> |
       <%= link_to "Logout", "/logout" %>
-
     </h3>
   </div>
 

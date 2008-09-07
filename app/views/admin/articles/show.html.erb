@@ -1,12 +1,21 @@
 <% admin_page_title("Articles") %>
 <% if @article %>
   <div class="span-24">
+    <%= link_to "Create Article", new_admin_article_url %> | 
     <%= link_to "Edit this article", edit_admin_article_url(@article) %> | 
     <% if @article.is_published == 0 %>
       <%= link_to "Publish this article", publish_admin_article_url(@article) %> |
     <% end %>
     <% if @article.is_published == 1 %>
       <%= link_to "Un-publish this article", unpublish_admin_article_url(@article) %> |
+    <% end %>
+    <%= link_to "Add comment", new_admin_article_comment_url(@article) %> | 
+    <%= link_to "Show comments", admin_article_comments_url(@article) %> | 
+    <%#= link_to_remote "Close comments", :url => close_comments_admin_article_url(@article), :method => :get %>
+    <% if @article.comments_closed == 1 %>
+      <%= link_to "Allow comments", open_comments_admin_article_url(@article) %> | 
+    <% else %>
+      <%= link_to "Close comments", close_comments_admin_article_url(@article) %> | 
     <% end %>
     <%= link_to "Delete this article", admin_article_url(@article), :confirm => "Are you sure", :method => :delete %> 
   </div>
@@ -17,11 +26,15 @@
 	<tr><th colspan="3">Article Details</th></tr>
 	<tr>
 		<td class="left">Title</td>
-		<td class="right" style="width: 420px"><%= h @article.title %></td>
+		<td class="right"><%= h @article.title %></td>
 	</tr>
 	<tr>
 		<td class="left">Status</td>
 		<td class="right"><%= @article.status_description %></td>
+	</tr>
+	<tr>
+		<td class="left">Comments Status</td>
+		<td class="right"><%= @article.comments_status_description %></td>
 	</tr>
 	<tr>
 		<td class="left">Category</td>
