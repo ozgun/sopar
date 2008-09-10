@@ -1,0 +1,14 @@
+<% admin_page_title("Projects") %>
+<div id="statusMessage" style="display:none"></div><br />
+<%= link_to "Back to Projects", admin_projects_url %>
+<hr />
+<div> Drag &amp; Drop to sort projects.</div>
+<br />
+<div class="span-24">
+  <ul id="my_list">
+    <% @projects.each do |project| %>
+      <li id="item_<%=project.id%>" class="sortableItem"><%= project.title %></li>
+    <% end %>
+  </ul>
+</div>
+<%= sortable_element("my_list", :url => { :action => "order" }) %>

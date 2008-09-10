@@ -1,0 +1,33 @@
+<tr id="row_<%= project.id %>">
+	<td>
+		<%= link_to truncate(h(project.title), 40), admin_project_url(project) %>
+	</td>
+	<td>
+		<%= h project.programming_language %>
+	</td>
+  <td>
+    <%= project.hours_spent %> hours
+  </td>
+  <td>
+    <%= yes_or_no(project.is_finished) %>
+  </td>
+	<td>
+		<%= published_or_not(project.is_published) %>
+	</td>
+	<td>
+		<% if project.is_published == 0 %>
+		<%= link_to image_tag("add.png", :title => "Publish", :alt => "Publish"),
+			    publish_admin_project_url(project) %>
+		<% end %>
+		<% if project.is_published == 1 %>
+		<%= link_to image_tag("cancel.png", :title => "Un-publish", :alt => "Un-publish"),
+			    unpublish_admin_project_url(project) %>
+		<% end %>
+		<%= link_to image_tag("edit.png", :title => "Edit", :alt => "Edit"),
+				  edit_admin_project_url(project) %>
+		<%= link_to_remote image_tag("delete.png", :alt => "Delete", :title => "Delete"), 
+          #:url => "/admin/projects/#{project.id}",
+          :url => {:action => :destroy, :id => project},
+			    :method => :delete, :confirm => "Are you sure?" %>
+	</td>
+</tr>

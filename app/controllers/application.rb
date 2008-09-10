@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password, :new_password
 
   def login_from_cookie
-    logger.debug("******** login_from_cookie **********")
+    #logger.debug("******** login_from_cookie **********")
     #return unless cookies[:auth_token] && session[:superuser_id].nil?
     if cookies[:auth_token] && session[:user_id].nil?
       user = User.find_by_remember_token(cookies[:auth_token])

@@ -2,8 +2,8 @@
 <div id="statusMessage" style="display:none"></div><br />
 <div class="span-24"><%= link_to "Back to Pages", admin_static_pages_url %></div>
 <hr />
-<table class="simpleTable">
 <% form_for [:admin, @static_page] do |f| %>
+<table class="simpleTable">
 
 	<tr><th colspan="3">New Page</th></tr>
   <%= render :partial => "form", :locals => {:f => f} %>
@@ -12,5 +12,5 @@
 		<td class="right"><%= fancy_submit_button "Create" %></td>
     <td class="errorCol">&nbsp;</td>
 	</tr>
-<% end %>
 </table>
+<% end %>

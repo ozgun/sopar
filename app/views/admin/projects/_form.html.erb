@@ -1,0 +1,129 @@
+	<tr>
+		<td class="left">Title</td>
+		<td class="right" style="width: 420px"><%= f.text_field :title, :class => "text" %></td>
+    <td class="errorCol"><%= f.error_message_on :title %></td>
+	</tr>
+	<tr>
+    <td class="left">Description <br />(Textile allowed)</td>
+		<td class="right" colspan="2">
+			 <%= f.text_area :description, :cols => 80, :rows => 40, :style => "width: 400px; height: 100px" %>
+		</td>
+	</tr>
+	<tr>
+		<td class="left">Details<br />(Textile allowed)</td>
+		<td class="right">
+			 <%= f.text_area :details, :cols => 80, :rows => 40, :style => "width: 400px; height: 500px" %>
+		</td>
+    <td class="errorCol">
+    <iframe src="/textile_usage.html" style="width: 330px; height: 500px"></iframe>
+    </td>
+	</tr>
+	<tr>
+		<td class="left">Programming Languages</td>
+    <td class="right" colspan="2">
+      <%= f.text_field :programming_language, :class => "text" %>
+      e.g. Ruby on Rails, HTML, CSS, Java, Perl
+    </td>
+	</tr>
+	<tr>
+		<td class="left">Start Date</td>
+    <td class="right" colspan="2">
+      <%= f.date_select :started_at, :order => [:year, :month, :day], :start_year => 1995, :use_month_numbers => true %>
+    </td>
+	</tr>
+	<tr>
+		<td class="left">Finish Date</td>
+    <td class="right" colspan="2">
+      <%= f.date_select :finished_at, :order => [:year, :month, :day], :start_year => 1995, :use_month_numbers => true, :include_blank => true %>
+    </td>
+	</tr>
+	<tr>
+		<td class="left">Finished?</td>
+    <td class="right" colspan="2">
+      <%= f.radio_button :is_finished, "1" %>Yes 
+      <%= f.radio_button :is_finished, "0" %>No
+    </td>
+	</tr>
+	<tr>
+		<td class="left">Estimated time</td>
+    <td class="right" colspan="2">
+      <%= f.text_field :hours_spent, :class => "text" %>
+      How many hours did you or will you spend on this project?
+    </td>
+	</tr>
+	<tr>
+		<td class="left">Customer</td>
+		<td class="right" colspan="2"><%= f.text_field :customer, :class => "text" %></td>
+	</tr>
+	<tr>
+		<td class="left">Location</td>
+    <td class="right" colspan="2">
+      <%= f.text_field :location, :class => "text" %>
+      Where does your application run? e.g. http://rubyonrails.org
+    </td>
+	</tr>
+	<tr>
+		<td class="left">Homepage</td>
+    <td class="right" colspan="2">
+      <%= f.text_field :website, :class => "text" %>
+      Does your app have an homepage? 
+    </td>
+	</tr>
+	<tr>
+		<td class="left">Download link</td>
+    <td class="right" colspan="2">
+      <%= f.text_field :download_link, :class => "text" %>
+      Tell people where they can download your application?
+    </td>
+	</tr>
+	<tr>
+		<td class="left">Demo Site</td>
+    <td class="right" colspan="2">
+      <%= f.text_field :demo_link, :class => "text" %>
+      Where do people test your fancy application? 
+    </td>
+	</tr>
+	<tr>
+		<td class="left">Demo Video (Embeded)</td>
+    <td class="right" colspan="2">
+      Do you have a demonstration video of your app uploaded to youtube or vimeo?<br />
+      <%= f.text_area :demo_video,:cols => 80, :rows => 40, :style => "width: 400px; height: 50px"%>
+    </td>
+	</tr>
+  <% unless @project.new_record? %>
+	<tr>
+		<td class="left">Screenshots</td>
+    <td class="right" colspan="2">
+      <% for screenshot in @project.screenshots %>
+        <div id="row_<%=screenshot.id%>">
+        <%= screenshot_thumb_with_link(screenshot) %>
+        <%= link_to_remote "Delete", 
+          :url => "/admin/screenshots/#{screenshot.id}",
+          :method => :delete %><br />
+          <hr />
+        </div>
+      <% end %>
+    </td>
+	</tr>
+  <tr>
+		<td class="left">Add Screenshots</td>
+    <td class="right">
+      <%= link_to "Add new screenshots", new_screenshots_admin_project_url(@project) %>
+    </td>
+  </tr>
+  <% end %>
+  <% if @project.new_record? %>
+  <tr>
+    <td class="left">Add Screenshots
+  </td>
+		<td class="right">
+      <div id="attachments">
+      <%= render :partial => "screenshot", :collection => @project.screenshots %>
+      </div>
+      <br />
+      <%= add_screenshot_link "Add a screenshot" %>
+		</td>
+    <td class="errorCol">
+    </td>
+  </tr>
+  <% end %>

@@ -4,8 +4,8 @@
   <%= link_to "Show this page", admin_static_page_url(@static_page) %>
 </div>
 <hr />
-<table class="simpleTable">
 <% form_for [:admin, @static_page], :url => {:action => "update"} do |f| %>
+<table class="simpleTable">
 	<tr><th colspan="3">Edit page</th></tr>
   <%= render :partial => "form", :locals => {:f => f} %>
 	<tr>
@@ -15,5 +15,5 @@
     </td>
     <td class="errorCol">&nbsp;</td>
 	</tr>
-<% end %>
 </table>
+<% end %>

@@ -1,0 +1,24 @@
+<% admin_page_title("Projects") %>
+<div id="statusMessage" style="display:none"></div><br />
+<div class="span-24">
+  <%= link_to "Create project", new_admin_project_url %> | 
+  <%= link_to "Reposition projects", reposition_admin_projects_url %>
+</div>
+<hr />
+
+<table class="simpleList">
+<tr>
+	<th style="width: 300px;">Title</th>
+	<th style="width: 150px">Technology</th>
+	<th style="width: 100px">Duration</th>
+	<th style="width: 100px">Finished?</th>
+	<th style="">Status</th>
+	<th style="width: 80px">&nbsp;</th>
+</tr>
+	<%= render :partial => "project", :collection => @projects %>
+<tr>
+	<td colspan="6" class="listPagination">
+		<%= custom_pagination(@projects) %>
+	</td>
+</tr>
+</table>

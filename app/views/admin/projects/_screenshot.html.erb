@@ -1,0 +1,6 @@
+<div>
+<% fields_for "project[screenshot_attributes][]", screenshot do |screenshot_form| %>
+  <%= screenshot_form.file_field :uploaded_data %>
+  <%= link_to_function "Remove", "Element.up(this).remove();" %>
+<% end %>
+</div>

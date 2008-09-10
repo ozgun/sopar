@@ -146,3 +146,11 @@ table.simpleList tr td.listPagination {
 .sortableItem {
   cursor: move;
 }
+.screenshotThumb {
+  border: 1px solid black;
+  padding: 5px;
+  background-color: #E6E6FA;
+}
+.smallTxt {
+  font-size: 10px;
+}

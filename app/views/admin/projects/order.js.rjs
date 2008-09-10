@@ -1,0 +1,5 @@
+page.replace_html :statusMessage, ""
+page.replace_html :statusMessage, fancy_notice_message(flash[:notice])
+page[:statusMessage].appear
+page[:my_list].visual_effect :highlight
+flash.discard

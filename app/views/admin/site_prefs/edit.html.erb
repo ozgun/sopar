@@ -1,6 +1,6 @@
 <% admin_page_title("Site Preferences") %>
+<% form_for [:admin, @site_pref], :html => {:multipart => true} do |f| %>
 <table class="simpleTable">
-  <% form_for [:admin, @site_pref], :html => {:multipart => true} do |f| %>
   <tr>
     <td class="left">Site Title</td>
     <td class="right">
@@ -23,6 +23,14 @@
     <td class="left">Site Domain</td>
     <td class="right">
       <%= f.text_field :domain, :class => "text" %>  
+    </td>
+  </tr>
+  <tr>
+    <td class="left">Show projects in homepage?</td>
+    <td class="right">
+      <%= f.radio_button :show_projects, "0" %>No
+      <%= f.radio_button :show_projects, "1" %>Yes <br />
+      Would you like to publish your latest 3 projects in your homepage?
     </td>
   </tr>
   <tr>
@@ -78,5 +86,5 @@
       <%= fancy_submit_button("Update") %>
     </td>
   </tr>
-<% end %>
 </table>
+<% end %>

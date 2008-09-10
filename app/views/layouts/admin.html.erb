@@ -4,7 +4,7 @@
   <head> 
   <meta http-equiv="X-UA-Compatible" content="IE=7" />
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title>SOPAR - Control Panel</title>
+  <title>sopar - Control Panel</title>
   <%= stylesheet_link_tag 'blueprint/screen', :media => "screen, projection" %>
   <%= stylesheet_link_tag 'blueprint/print', :media => "print" %>
   <!--[if IE]>
@@ -19,7 +19,9 @@
   <div class="container" id="container">
 	
     <div class="span-24 header">
-        <h1>SOPAR - <em>Control Panel</em></h1>
+      <h1>Control Panel 
+        <span class="smallTxt" style="float: right"> A simple and personal blog and CMS application in Ruby on Rails.<i> <%= link_to "sopar v0.1", "http://github.com/ozgun/sopar/tree" %></i></span>
+      </h1>
     </div>
 
 	<div class="span-24">
@@ -27,7 +29,7 @@
       <%= link_to "Pages", admin_static_pages_url %> |
       <%= link_to "Articles", admin_articles_url %> |
       <%= link_to "Comments", recent_admin_comments_url %> |
-      <%= link_to "Projects", "/" %> |
+      <%= link_to "Projects", admin_projects_url %> |
       <%= link_to "Categories", admin_categories_url %> |
       <%= link_to "Tags", admin_tags_url %> |
       <%= link_to "Assets", admin_assets_url %> |

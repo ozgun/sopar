@@ -17,7 +17,11 @@ ActionController::Routing::Routes.draw do |map|
                                   :has_many => [:comments]
     admin.resources :comments,    :member => {:publish => :get, :unpublish => :get}, 
                                   :collection => {:recent => :get} 
-    admin.resources :projects
+    admin.resources :projects,    :member => {:publish => :get, :unpublish => :get, 
+                                              :new_screenshots => :get, :create_screenshots => :put},
+                                  :collection => {:reposition => :get},
+                                  :has_many => [:screenshots]
+    admin.resources :screenshots
     admin.resources :assets
     admin.resources :tags,        :collection => {:search => :get}
    end

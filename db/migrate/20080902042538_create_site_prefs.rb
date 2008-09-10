@@ -3,6 +3,7 @@ class CreateSitePrefs < ActiveRecord::Migration
     create_table :site_prefs do |t|
       t.string :title, :slogan, :email, :domain
       t.text :footer, :sidebar, :google_analytics, :google_adsense, :gtalk_badge, :links, :twitter
+      t.integer :show_projects, :limit => 1, :default => 0
       t.timestamps
     end
     p = SitePref.new :title => "My Title", 

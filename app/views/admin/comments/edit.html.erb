@@ -4,8 +4,8 @@
 <%= link_to "Show this comment ", admin_article_comment_url(@article, @comment) %>
 </div>
 <hr />
-<table class="simpleTable">
 <% form_for [:admin, @comment], :url => {:action => "update"} do |f| %>
+<table class="simpleTable">
 	<tr><th colspan="3">Edit Comment</th></tr>
   <%= render :partial => "form", :locals => {:f => f} %>
 	<tr>
@@ -13,5 +13,5 @@
 		<td class="right"><%= fancy_submit_button "Update" %></td>
     <td class="errorCol">&nbsp;</td>
 	</tr>
-<% end %>
 </table>
+<% end %>

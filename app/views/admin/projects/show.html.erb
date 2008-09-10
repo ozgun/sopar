@@ -1,0 +1,84 @@
+<% admin_page_title("Projects") %>
+<% if @project %>
+  <div class="span-24">
+    <%= link_to "Create Project", new_admin_project_url %> | 
+    <%= link_to "Edit this project", edit_admin_project_url(@project) %> | 
+    <%= link_to "Add new screenshots", new_screenshots_admin_project_url(@project) %> | 
+    <% if @project.is_published == 0 %>
+      <%= link_to "Publish this project", publish_admin_project_url(@project) %> |
+    <% end %>
+    <% if @project.is_published == 1 %>
+      <%= link_to "Un-publish this project", unpublish_admin_project_url(@project) %> |
+    <% end %>
+    <%= link_to "Delete this project", admin_project_url(@project), :confirm => "Are you sure", :method => :delete %> 
+  </div>
+<hr />
+
+<table class="simpleTable">
+
+	<tr><th colspan="3">Project Details</th></tr>
+	<tr>
+		<td class="left">Title</td>
+		<td class="right"><%= h @project.title %></td>
+	</tr>
+	<tr>
+		<td class="left">Status</td>
+		<td class="right"><%= published_or_not(@project.is_published) %></td>
+	</tr>
+	<tr>
+		<td class="left">Description</td>
+    <td class="right"><%= RedCloth.new(@project.description).to_html %></td>
+	</tr>
+	<tr>
+		<td class="left">Details</td>
+    <td class="right"><%= RedCloth.new(@project.details).to_html %></td>
+	</tr>
+	<tr>
+		<td class="left">Programming Languages</td>
+    <td class="right"><%= h @project.programming_language %></td>
+	</tr>
+	<tr>
+		<td class="left">Start Date</td>
+    <td class="right"><%= time_only_date(@project.started_at) %></td>
+	</tr>
+	<tr>
+		<td class="left">Finish Date</td>
+    <td class="right"><%= time_only_date(@project.finished_at) %></td>
+	</tr>
+	<tr>
+		<td class="left">Finished?</td><td class="right" colspan="2"><%= yes_or_no(@project.is_finished) %></td>
+	</tr>
+	<tr>
+		<td class="left">Estimated time</td>
+    <td class="right"><%= pluralize(@project.hours_spent, "hour") %></td>
+	</tr>
+	<tr>
+		<td class="left">Customer</td>
+		<td class="right"><%= h @project.customer %></td>
+	</tr>
+	<tr>
+		<td class="left">Location</td>
+    <td class="right"><%= h @project.location %></td>
+	</tr>
+	<tr>
+		<td class="left">Homepage</td>
+    <td class="right"><%= h @project.website %></td>
+	</tr>
+	<tr>
+		<td class="left">Download link</td>
+    <td class="right"><%= h @project.download_link %></td>
+	</tr>
+	<tr>
+		<td class="left">Demo Site</td>
+    <td class="right"><%= h @project.demo_link %></td>
+	</tr>
+  <tr>
+		<td class="left">Screenshots</td>
+    <td class="right">
+    <% for screenshot in @project.screenshots %>
+      <%= screenshot_thumb_with_link(screenshot) %>
+    <% end %>
+    </td>
+  </tr>
+<% end %>
+</table>

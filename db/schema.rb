@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080907103518) do
+ActiveRecord::Schema.define(:version => 20080909063236) do
 
   create_table "articles", :force => true do |t|
     t.string   "title",                            :default => "", :null => false
@@ -57,6 +57,55 @@ ActiveRecord::Schema.define(:version => 20080907103518) do
     t.datetime "updated_at"
   end
 
+  create_table "project_files", :force => true do |t|
+    t.integer  "parent_id",    :limit => 11
+    t.integer  "size",         :limit => 11
+    t.integer  "width",        :limit => 11
+    t.integer  "height",       :limit => 11
+    t.string   "content_type"
+    t.string   "filename"
+    t.string   "thumbnail"
+    t.string   "title"
+    t.integer  "project_id",   :limit => 11
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "projects", :force => true do |t|
+    t.string   "title",                              :default => "", :null => false
+    t.text     "description"
+    t.text     "details"
+    t.text     "demo_video"
+    t.integer  "is_published",         :limit => 1,  :default => 0
+    t.integer  "is_finished",          :limit => 1,  :default => 0
+    t.string   "customer"
+    t.string   "programming_language"
+    t.string   "download_link"
+    t.string   "website"
+    t.string   "location"
+    t.string   "demo_link"
+    t.datetime "started_at"
+    t.datetime "finished_at"
+    t.integer  "hours_spent",          :limit => 11
+    t.integer  "position",             :limit => 11
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "screenshots", :force => true do |t|
+    t.integer  "parent_id",    :limit => 11
+    t.integer  "size",         :limit => 11
+    t.integer  "width",        :limit => 11
+    t.integer  "height",       :limit => 11
+    t.string   "content_type"
+    t.string   "filename"
+    t.string   "thumbnail"
+    t.string   "title"
+    t.integer  "project_id",   :limit => 11
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "site_prefs", :force => true do |t|
     t.string   "title"
     t.string   "slogan"
@@ -69,6 +118,7 @@ ActiveRecord::Schema.define(:version => 20080907103518) do
     t.text     "gtalk_badge"
     t.text     "links"
     t.text     "twitter"
+    t.integer  "show_projects",    :limit => 1, :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

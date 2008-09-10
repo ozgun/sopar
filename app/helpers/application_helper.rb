@@ -1,6 +1,14 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
+  def screenshot_thumb_with_link(screenshot)
+    link_to(screenshot_thumb(screenshot), screenshot.public_filename) if screenshot
+  end
+
+  def screenshot_thumb(screenshot)
+    image_tag(screenshot.public_filename(:thumb), :class => "screenshotThumb") if screenshot
+  end
+
   def admin_page_title(page_title)
     content_for :title do 
       "<div class=\"span-24 pageTitle\">#{page_title}</div>"
@@ -42,7 +50,7 @@ module ApplicationHelper
   end
   
   def time_only_date(time)
-    time.strftime("%d/%m/%Y")
+    time.strftime("%d/%m/%Y") if time
   end
 
   def print_tags(article)
@@ -61,6 +69,14 @@ module ApplicationHelper
 
   def custom_pagination(items)
     will_paginate items, {:prev_label => "&laquo; Previous", :next_label => "Next &raquo;"}
+  end
+
+  def yes_or_no(val)
+    val == 1 ? "Yes" : "No"
+  end
+
+  def published_or_not(val)
+    val == 1 ? "<font style=\"color:green\">Published</font>" : "<font style=\"color:red\">Un-published</font>"
   end
 
 end
