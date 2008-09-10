@@ -128,12 +128,14 @@ class Admin::ProjectsController < ApplicationController
     flash[:notice] = "Screenshots added"
     redirect_to admin_project_url(@project)
   rescue ActiveRecord::RecordInvalid => e
-    flash[:warning] = COMMON_ERROR_MSG
-    render :action =>  :new_screenshots
+    @project = Project.find params[:id]
+    flash[:warning] = e.message
+    #render :action =>  :new_screenshots, :id => @project
+    redirect_to :action => :new_screenshots, :id => @project
   rescue Exception => e
     flash[:warning] = e.message
     log_exception(e)
-    redirect_to :action => :new_screenshots
+    redirect_to :action => :index
   end
 
 end
