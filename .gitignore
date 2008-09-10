@@ -8,3 +8,4 @@ var/data/*
 public/images/captcha/*
 public/images/logo.png
 public/uploads/*
+public/images/screenshots/*
