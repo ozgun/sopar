@@ -1,6 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   # The priority is based upon order of creation: first created -> highest priority.
 
+  map.resources :sitemaps
+
   # Login
   map.connect 'login', :controller => 'accounts', :action => 'login'
   map.connect 'logout', :controller => 'accounts', :action => 'logout'

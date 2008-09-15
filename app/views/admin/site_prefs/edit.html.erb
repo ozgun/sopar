@@ -28,9 +28,9 @@
   <tr>
     <td class="left">Show projects in homepage?</td>
     <td class="right">
+      Would you like to publish your latest 3 projects in your homepage?<br />
       <%= f.radio_button :show_projects, "0" %>No
-      <%= f.radio_button :show_projects, "1" %>Yes <br />
-      Would you like to publish your latest 3 projects in your homepage?
+      <%= f.radio_button :show_projects, "1" %>Yes 
     </td>
   </tr>
   <tr>
@@ -40,7 +40,7 @@
     </td>
   </tr>
   <tr>
-    <td class="left">External Links</td>
+    <td class="left">Links<br />(One link per line)</td>
     <td class="right">
       <%= f.text_area :links, :class => "smallTextArea" %>  
     </td>
