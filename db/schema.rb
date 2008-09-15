@@ -57,20 +57,6 @@ ActiveRecord::Schema.define(:version => 20080909063236) do
     t.datetime "updated_at"
   end
 
-  create_table "project_files", :force => true do |t|
-    t.integer  "parent_id",    :limit => 11
-    t.integer  "size",         :limit => 11
-    t.integer  "width",        :limit => 11
-    t.integer  "height",       :limit => 11
-    t.string   "content_type"
-    t.string   "filename"
-    t.string   "thumbnail"
-    t.string   "title"
-    t.integer  "project_id",   :limit => 11
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "projects", :force => true do |t|
     t.string   "title",                              :default => "", :null => false
     t.text     "description"
@@ -118,6 +104,10 @@ ActiveRecord::Schema.define(:version => 20080909063236) do
     t.text     "gtalk_badge"
     t.text     "links"
     t.text     "twitter"
+    t.text     "addthis"
+    t.text     "delicious"
+    t.text     "feedburner"
+    t.text     "workingwithrails"
     t.integer  "show_projects",    :limit => 1, :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
