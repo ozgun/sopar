@@ -6,13 +6,13 @@
 	<tr>
     <td class="left">Description <br />(Textile allowed)</td>
 		<td class="right" colspan="2">
-			 <%= f.text_area :description, :cols => 80, :rows => 40, :style => "width: 400px; height: 100px" %>
+			 <%= textile_editor 'project', :description, :cols => 80, :rows => 40, :style => "width: 400px; height: 100px" %>
 		</td>
 	</tr>
 	<tr>
 		<td class="left">Details<br />(Textile allowed)</td>
 		<td class="right">
-			 <%= f.text_area :details, :cols => 80, :rows => 40, :style => "width: 400px; height: 500px" %>
+			 <%= textile_editor 'project', :details, :cols => 80, :rows => 40, :style => "width: 400px; height: 500px" %>
 		</td>
     <td class="errorCol">
     <iframe src="/textile_usage.html" style="width: 330px; height: 500px"></iframe>
