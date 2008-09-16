@@ -4,7 +4,7 @@
   <head> 
     <meta http-equiv="X-UA-Compatible" content="IE=7" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>Login</title>
+    <title>Sopar - Login</title>
     <%= stylesheet_link_tag 'blueprint/screen', :media => "screen, projection" %>
     <%= stylesheet_link_tag 'blueprint/print', :media => "print" %>
     <!--[if IE]>
@@ -19,7 +19,7 @@
         <% end %>
         <% form_for :user, :url => {:action => "authenticate"} do |f| %>
           <fieldset>
-            <legend>Login</legend>
+            <legend>Sopar - Login</legend>
             <label for="user_username">Username</label><br>
             <%= f.text_field :username, :class => "text" %><br />
             <label for="user_password">Password</label><br>
@@ -27,9 +27,9 @@
             <p>
             <%= check_box_tag :remember_me %> Remember me<br />
             </p>
-            <p class="buttons">
-            <button type="submit" class="button positive"><img src="/stylesheets/blueprint/plugins/buttons/icons/key.png" alt=""/>Let me in</button>
-            </p>               
+            <!--<p class="buttons">-->
+            <button style="width: 110px;" type="submit" class="button positive"><img src="/stylesheets/blueprint/plugins/buttons/icons/key.png" alt=""/> Let me in</button>
+            <!--</p>              --> 
           </fieldset>
         </div>
       <% end %>

@@ -11,7 +11,7 @@ module ApplicationHelper
 
   def admin_page_title(page_title)
     content_for :title do 
-      "<div class=\"span-24 pageTitle\">#{page_title}</div>"
+      "<div class=\"span-24 pageTitle\"><div class=\"span-16\">#{page_title}</div><div class=\"span-8 last\" style=\"text-align:right; font-weight: normal; font-size: 10px;\"><a href=\"/\">View Site</a> | <a href=\"/logout\">Logout</a></div></div>"
     end
   end
 

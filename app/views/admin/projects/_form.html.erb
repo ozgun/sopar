@@ -108,7 +108,8 @@
   <tr>
 		<td class="left">Add Screenshots</td>
     <td class="right">
-      <%= link_to "Add new screenshots", new_screenshots_admin_project_url(@project) %>
+      <%= link_to "Add new screenshots", new_screenshots_admin_project_url(@project), :popup => true %>
+      (Opens in new tab/window.)
     </td>
   </tr>
   <% end %>
