@@ -17,10 +17,12 @@
 <body>
 	
   <div class="container" id="container">
+    <div class="span-24 topBar">
+      
 	
     <div class="span-24 header">
-      <h1>Control Panel 
-        <span class="smallTxt" style="float: right"> A simple and personal blog and CMS application in Ruby on Rails.<i> <%= link_to "sopar v0.1", "http://github.com/ozgun/sopar/tree" %></i></span>
+      <h1><b>sopar</b> <span class="version"><i><%= link_to "sopar v0.1", "http://github.com/ozgun/sopar/tree" %></i></span><br />
+        <span class="smallTxt" style="float: left"> A simple and personal blog and CMS application in Ruby on Rails.</span>
       </h1>
     </div>
 
@@ -38,6 +40,8 @@
       <%= link_to "Logout", "/logout" %>
     </h3>
   </div>
+
+    </div>
 
   <!-- page title -->
   <%= yield(:title) %>

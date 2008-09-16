@@ -1,3 +1,12 @@
+#container {
+}
+.topBar {
+  background-image: url("/images/sopar_bg.png");
+  border: 1px solid #dddddd;
+}
+.version {
+  font-size: 10px;
+}
 #statusMessage {
   font-weight: bold;
   /*background-color: #D8D8D8;*/
@@ -134,7 +143,7 @@ table.simpleList tr td.listPagination {
   font-weight: bold;
 }
 .header {
-  background-color: #cccccc;
+  /*background-color: #cccccc;*/
 }
 .userBar {
   text-align: right;
