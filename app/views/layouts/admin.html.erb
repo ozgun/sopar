@@ -18,28 +18,26 @@
 	
   <div class="container" id="container">
     <div class="span-24 topBar">
-      
-	
-    <div class="span-24 header">
-      <h1><b>sopar</b> <span class="version"><i><%= link_to "sopar v0.1", "http://github.com/ozgun/sopar/tree" %></i></span><br />
-        <span class="smallTxt" style="float: left"> A simple and personal blog and CMS application in Ruby on Rails.</span>
-      </h1>
-    </div>
+      <div class="span-24 header">
+        <h1><b>sopar</b> <span class="version"><i><%= link_to "sopar v0.1", "http://github.com/ozgun/sopar/tree" %></i></span><br />
+          <span class="smallTxt" style="float: left"> A simple and personal blog and CMS application in Ruby on Rails.</span>
+        </h1>
+      </div>
 
-	<div class="span-24">
-    <h3>
-      <%= link_to "Pages", admin_static_pages_url %> |
-      <%= link_to "Articles", admin_articles_url %> |
-      <%= link_to "Comments", recent_admin_comments_url %> |
-      <%= link_to "Projects", admin_projects_url %> |
-      <%= link_to "Categories", admin_categories_url %> |
-      <%= link_to "Tags", admin_tags_url %> |
-      <%= link_to "Assets", admin_assets_url %> |
-      <%= link_to "Preferences", edit_admin_site_pref_url(1) %> |
-      <%= link_to "Profile", edit_admin_user_url(@current_user) %> |
-      <%= link_to "Logout", "/logout" %>
-    </h3>
-  </div>
+	  <div class="span-24">
+      <h3>
+        <%= link_to "Pages", admin_static_pages_url %> |
+        <%= link_to "Articles", admin_articles_url %> |
+        <%= link_to "Comments", recent_admin_comments_url %> |
+        <%= link_to "Projects", admin_projects_url %> |
+        <%= link_to "Categories", admin_categories_url %> |
+        <%= link_to "Tags", admin_tags_url %> |
+        <%= link_to "Assets", admin_assets_url %> |
+        <%= link_to "Preferences", edit_admin_site_pref_url(1) %> |
+        <%= link_to "Profile", edit_admin_user_url(@current_user) %> |
+        <%= link_to "Logout", "/logout" %>
+      </h3>
+    </div>
 
     </div>
 
