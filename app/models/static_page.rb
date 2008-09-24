@@ -15,6 +15,7 @@ class StaticPage < ActiveRecord::Base
     "#{self.id}-#{self.title.gsub(/[^a-z0-9\-]/i, '-')}"
   end
 
+  #TODO: Should be in a helper.
   def status_description
     self.is_published == 1 ? "<font class=\"green\">Published</font>" : "<font class=\"red\">Un-published</font>"
   end

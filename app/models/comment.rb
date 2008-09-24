@@ -1,6 +1,5 @@
 class Comment < ActiveRecord::Base
   belongs_to :article, :counter_cache => true
-  #belongs_to :article
 
   #Allow only following attributes updated or created with mass-updates
   attr_accessible :title, :body, :commentator, :commentator_email, :commentator_website
@@ -10,6 +9,7 @@ class Comment < ActiveRecord::Base
   validates_presence_of :body, :commentator
   validates_associated :article
 
+  #TODO: Should be in a helper.
   def status_description
     self.is_published == 1 ? "<font class=\"green\">Published</font>" : "<font class=\"red\">Un-published</font>"
   end
