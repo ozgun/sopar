@@ -3,6 +3,10 @@ class User < ActiveRecord::Base
   before_save :encrypt_password
   before_destroy :dont_destroy_admin
 
+  #NOTES: I've used some codes from "restful-authentication" plugin. 
+  #If you prefer a better authentication I suggest using restful-authentication.
+  #http://github.com/technoweenie/restful-authentication/tree/master
+
   #Constants
   EMAIL_REGEX = /\A[A-Z0-9\._%-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}\z/i
   USERNAME_REGEX = /^[a-z0-9_]+$/i
@@ -12,8 +16,9 @@ class User < ActiveRecord::Base
 
   #Allow only following attributes updated or created with mass-updates
   attr_accessible :username, :email, :first_name, :last_name, :biography, 
-    :password, :password_confirmation, :website
+                  :password, :password_confirmation, :website
 
+  # Validations
   validates_presence_of :username, :email
   validates_length_of :username, :within => 4..40
   validates_format_of :username, :with => USERNAME_REGEX
@@ -45,7 +50,7 @@ class User < ActiveRecord::Base
   end
   
   #
-  # De-Activating user account
+  # De-Activate user
   #
   def deactivate_account
     self.update_attribute('deactivated', 1)
@@ -119,7 +124,6 @@ class User < ActiveRecord::Base
   protected
 
   def encrypt_password
-      logger.debug("encrypt_password  #{password.blank?} ------------")
       return if password.blank?
       self.salt = rand_key(self.username) if new_record?
       self.crypted_password = encrypt(password)
