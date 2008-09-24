@@ -23,12 +23,9 @@ class AccountsController < ApplicationController
         user.forget_me
         delete_cookies
       end
-      #redirect_user(user)
       redirect_to admin_user_url(user)
     else
-      #logger.debug("********************************************")
       flash[:warning] = "Error! Try again!"
-      #render :action => :login
       redirect_to "/login"
     end
   end
@@ -36,7 +33,6 @@ class AccountsController < ApplicationController
   def logout
     delete_cookies
     reset_session_values
-    #flash[:notice] = ""
     redirect_to "/"
   end
 

@@ -91,7 +91,6 @@ class Admin::CommentsController < ApplicationController
     end
   end
 
-
   def publish
     @comment = Comment.find params[:id]
     @comment.change_publish_status(1)

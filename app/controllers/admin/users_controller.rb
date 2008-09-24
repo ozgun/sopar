@@ -28,7 +28,6 @@ class Admin::UsersController < ApplicationController
     render :action =>  :edit, :id => @user
   end
 
-
   def update_password
     @user = User.find(params[:id])
     if @user.update_password(params[:user][:new_password],params[:user][:password_confirmation])
@@ -39,6 +38,5 @@ class Admin::UsersController < ApplicationController
       render :action => "edit", :id => @user.id
     end
   end
-
 
 end

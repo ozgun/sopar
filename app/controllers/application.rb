@@ -16,19 +16,15 @@ class ApplicationController < ActionController::Base
   before_filter :login_from_cookie, :site_option
   
   #replaces the value to all keys matching words with "[FILTERED]"
-  #filter_parameter_logging "password", "new_password"
   filter_parameter_logging :password, :new_password
 
   def login_from_cookie
-    #logger.debug("******** login_from_cookie **********")
-    #return unless cookies[:auth_token] && session[:superuser_id].nil?
     if cookies[:auth_token] && session[:user_id].nil?
       user = User.find_by_remember_token(cookies[:auth_token])
       if user && user.deactivated == 0 && user.update_last_logged_in_at && !user.remember_token_expires_at.nil? && Time.now < user.remember_token_expires_at 
         user.update_last_logged_in_at
         set_session_values(user)
         set_cookie_values(user)
-        #redirect_user(user)  
         redirect_to admin_user_url(user)
       end
     else
@@ -48,9 +44,7 @@ class ApplicationController < ActionController::Base
       logger.error(e.backtrace.join("\n"))
   end
 
-
   protected
-  
 
   def set_cookie_values(user)
     cookies[:auth_token] = { :value => user.remember_token, 

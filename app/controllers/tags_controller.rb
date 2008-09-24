@@ -1,5 +1,5 @@
 class TagsController < ApplicationController
-  #TODO: index and show should implemented with only one method.
+  #TODO: A better search!
 
   def index
     @tag, @articles = search(params[:q])
@@ -30,9 +30,6 @@ class TagsController < ApplicationController
       articles = Article.find_tagged_with(tag).paginate :page => params[:page], :per_page => 10
     end
     return tag, articles
-  #rescue Exception => e
-    #log_exception(e)
-    #return tag, articles
   end
 
 end

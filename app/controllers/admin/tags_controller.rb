@@ -9,7 +9,6 @@ class Admin::TagsController < ApplicationController
     log_exception(e)
   end
 
-
   def show
     @tag = Tag.find(params[:id])
     @articles = Article.find_tagged_with(@tag)
@@ -43,6 +42,5 @@ class Admin::TagsController < ApplicationController
       format.js
     end
   end
-  
 
 end
