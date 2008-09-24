@@ -3,7 +3,7 @@ module ApplicationHelper
 
   #This is for tag cloud 
   #include TagsHelper
-
+  
   #FIXME: This should work in TagsHelper, I don't know why it's not working there!
   def tag_cloud(tags, classes)
     return if tags.empty?
