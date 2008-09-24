@@ -13,8 +13,7 @@ class Article < ActiveRecord::Base
   validates_associated :category, :user
 
   def permalink
-    #"#{self.id}-#{self.title.gsub!(/[^a-z0-9\-]/i, '-')}"
-    "#{self.id}-#{self.title}"
+    "#{self.id}-#{self.title.gsub(/[^a-z0-9\-]/i, '-')}"
   end
 
   def status_description
@@ -56,7 +55,11 @@ class Article < ActiveRecord::Base
   end
 
   def self.recent
-    ordered.find :all, :limit => 5
+    published.find :first, :order => "created_at DESC"
+  end
+
+  def self.latest_articles
+    find :all, :conditions => ["is_published=1"], :order => "created_at DESC", :limit => 5
   end
 
 end

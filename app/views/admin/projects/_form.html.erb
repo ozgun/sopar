@@ -4,9 +4,9 @@
     <td class="errorCol"><%= f.error_message_on :title %></td>
 	</tr>
 	<tr>
-    <td class="left">Description <br />(Textile allowed)</td>
+    <td class="left">Description <br />(Short description about your project)</td>
 		<td class="right" colspan="2">
-			 <%= textile_editor 'project', :description, :cols => 80, :rows => 40, :style => "width: 400px; height: 100px" %>
+			 <%= text_area 'project', :description, :cols => 80, :rows => 40, :style => "width: 400px; height: 100px" %>
 		</td>
 	</tr>
 	<tr>
