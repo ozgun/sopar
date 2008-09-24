@@ -12,7 +12,7 @@
     <%= link_to "About", about_url %> &nbsp;|&nbsp; 
     <%= link_to "Contact", contact_url %>&nbsp;
 </div>
-<% if @site_options.show_projects %>
+<% if @site_options.show_projects == 1 %>
 <div class="toggleLatestProjects" style="float: right">
   <%= link_to_remote "+", :url => {:controller => :projects, :action => :toggle_show} %>
   <%= link_to_remote "-", :url => {:controller => :projects, :action => :toggle_hide} %>
