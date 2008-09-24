@@ -66,4 +66,5 @@ Rails::Initializer.run do |config|
   # config.active_record.observers = :cacher, :garbage_collector
 end
 
+ERROR_MSG = "Error! Try again please!"
 COMMON_ERROR_MSG = "Error! Please correct the errors and try again!"

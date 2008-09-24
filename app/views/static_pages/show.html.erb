@@ -1,0 +1,4 @@
+<% if @static_page %>
+  <% page_title(@static_page.title) %>
+  <%= textilize(@static_page.body) %>
+<% end %>

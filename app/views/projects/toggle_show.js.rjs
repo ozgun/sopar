@@ -1,0 +1,1 @@
+page.replace_html :latestProjects, :partial => "layouts/latest_projects"

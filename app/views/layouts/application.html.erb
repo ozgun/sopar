@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head> 
+  <meta http-equiv="X-UA-Compatible" content="IE=7" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title><%= @site_options.title %> | <%= @site_options.slogan %> <%= html_title %></title>
+  <link rel="alternate" type="application/rss+xml" title="<%= "#{@site_options.title} | #{@site_options.slogan}" %>" href="<%= rss_link %>" />
+  <%= stylesheet_link_tag 'blueprint/screen', :media => "screen, projection" %>
+  <%= stylesheet_link_tag 'blueprint/print', :media => "print" %>
+  <!--[if IE]>
+  	<%= stylesheet_link_tag 'blueprint/ie', :media => "screen, projection" %>
+  <![endif]-->
+  <%= stylesheet_link_tag 'main' %>
+  <%= javascript_include_tag :defaults %>
+  <%= yield(:head) %>
+</head> 
+<body>
+	
+  <div class="container" id="container">
+
+    <!-- top bar begin  -->
+    <div class="span-24 topBarOuter">
+      <div class="box">
+        <%= render :partial => "layouts/header" %>
+      </div>
+    </div>
+    <!-- top bar end -->
+
+    <!-- latest projects begin --> 
+      <%= render :partial => "layouts/latest_projects" %>
+    <!-- latest projects end -->
+
+    <!-- content(left column) begin  -->
+    <div class="span-16 contentOuter">
+      <div class="content box">
+       
+        <!-- page title -->
+        <div class="pageTitle ">
+          <%= yield(:title) %>
+        </div>
+
+	      <!-- status messages -->
+        <%= render :partial => "layouts/status_messages" %>
+
+        <!-- content body -->
+        <div class="contentBody">
+            <%= yield %>
+            <div class="spacer">&nbsp;</div>
+        </div>
+       
+      </div>
+    </div>
+    <!-- content(left column) end  -->
+
+    <!-- sidebar begin --> 
+    <div class="span-8 last sidebarOuter">
+      <div class="sidebar box">
+        <%= render :partial => "layouts/sidebar" %>
+      </div>
+    </div>
+    <!-- sidebar end -->
+
+    <!-- tag cloud begin --> 
+    <div class="span-24">
+      <%= render :partial => "layouts/tag_cloud" %>
+    </div>
+    <!-- tag cloud end --> 
+
+    <!-- footer begin --> 
+    <div class="span-24">
+      <%= render :partial => "layouts/footer" %>
+    </div>
+    <!-- footer end --> 
+
+</div>
+<!-- container end -->
+
+<% if ENV['RAILS_ENV'] == 'development' %>
+	<div>
+		<%= render :partial => "layouts/debug" %>
+	</div>
+<% end %>
+</body> 
+</html>

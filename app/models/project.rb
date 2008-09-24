@@ -12,8 +12,7 @@ class Project < ActiveRecord::Base
   end
 
   def permalink
-    #"#{self.id}-#{self.title.gsub!(/[^a-z0-9\-]/i, '-')}"
-    "#{self.id}-#{self.title}"
+    "#{self.id}-#{self.title.gsub(/[^a-z0-9\-]/i, '-')}"
   end
 
   def change_publish_status(new_status)
@@ -25,6 +24,10 @@ class Project < ActiveRecord::Base
 
   def self.published
     find :all, :conditions => ["is_published=1"]
+  end
+
+  def self.latest_projects
+    find :all, :conditions => ["is_published=1"], :order => "position", :limit => 3 
   end
 
 end

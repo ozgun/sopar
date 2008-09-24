@@ -1,80 +1,156 @@
+body {
+  /*
+  background-color: #6E7B8B;
+  font-family: "Lucida Sans" , sans-serif;
+  font-family: "Monaco" , sans-serif;
+  font-family: "Helvetica" , sans-serif;
+  font-family: "Verdana" , sans-serif;
+  font-family: "Arial" , serif;
+  font-family: "Arial" , sans-serif;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  */
+}
+a {
+  text-decoration: none;
+}
 #container {
-	
 }
-#leftSideBar {
-	background-color: yellow;
+.topBarOuter {
 }
-#middleColumn {
-	background-color: #F4F1F1;
+.headerOuter {
 }
-#rightSideBar {
-	background-color: #cccccc;
-	height: 100%;
+.topBar {
 }
-#header {
-	background-color: #abcdef;
+.header {
+  font-size: 2.5em;
+  font-weight: bold;
 }
-#footer {
+.header a {
+  color: black;
+}
+.slogan {
+  font-size: 2em;
+}
+.headerAndSlogan {
+}
+.gtalkBadge {
+  margin-top: 10px;
+}
+.bookmarkThis {
+  text-align: right;
+}
+.contentOuter {
+}
+.content {
+}
+.contentBody {
+}
+.sidebarOuter {
+}
+.sidebar {
+}
+.sidebarModule {
+}
+.sidebarTitle {
+  font-size: 20px;
+  line-height: 24px;
+}
+.sidebarItem, .sidebarItem a{
+  font-size: 16px;
+  line-height: 22px;
+  text-decoration: none;
+}
+.footer {
 	text-align: center;
 }
 #statusMessage {
 	
 }
-#askQuestion {
-	height: 50px;
-	background-color: #aaaabb;
-}
-#yourQuestions {
-	height: 50px;
-	background-color: #aaaabb;
-}
-#authors {
-	background-color: #ccccaa;
-}
-
 .center {
 	text-align: center;
 }
-#uiPageTitle {
+.pageTitle {
+}
+/* Pagination styles begin */
+.pagination {
 	text-align: center;
 }
-.article {
-	
+.publishedAt {
+  color: gray;
 }
-.articleTitle {
-	font-weight: bold;
+.pagination .prev_page, .prev_page a {
 }
-.articleRow {
-	border: 1px solid #cccccc;
+.pagination .next_page, .next_page a {
 }
-.articleTh a {
-	/*text-decoration: none;*/
+.pagination .disabled {
 }
-.articleTags {
-	color: gray;
+.pagination .current {
 }
-.articleBody {
-	font-size: 10pt; 
-	vertical-align: top; 
-	color: black; 
-	font-family: Verdana
-}
-.articleDate {
-	text-align: left;
-	color: gray;
-}
-.articleContinue {
-	text-align: right;
-	font-weight: bold;
-}
-#uiPagination {
-	text-align: center;
-}
+/* Pagination styles end */
+
+/* digg paginaton begin */
+.digg_pagination {
+  /*background: white;*/
+  /* self-clearing method: */ }
+  .digg_pagination a, .digg_pagination span {
+    background: white;
+    padding: .2em .5em;
+    display: block;
+    float: left;
+    margin-right: 1px; }
+  .digg_pagination span.disabled {
+    color: #999;
+    border: 1px solid #DDD; }
+  .digg_pagination span.current {
+    font-weight: bold;
+    background: #2E6AB1;
+    color: white;
+    border: 1px solid #2E6AB1; }
+  .digg_pagination a {
+    text-decoration: none;
+    color: #105CB6;
+    border: 1px solid #9AAFE5; }
+    .digg_pagination a:hover, .digg_pagination a:focus {
+      color: #003;
+      border-color: #003; }
+  .digg_pagination .page_info {
+    background: #2E6AB1;
+    color: white;
+    padding: .4em .6em;
+    width: 22em;
+    margin-bottom: .3em;
+    text-align: center; }
+    .digg_pagination .page_info b {
+      color: #003;
+      background: #6aa6ed;
+      padding: .1em .25em; }
+  .digg_pagination:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  * html .digg_pagination {
+    height: 1%; }
+  *:first-child+html .digg_pagination {
+    overflow: hidden; }
+/* digg pagination end */
+
 #archive {
 	background-color: green;
 }
-#menu {
-
+.menuOuter {
+  /*
+	background-color: #F5F5F5;
+  */
+}
+.menu {
+	background-color: #F5F5F5;
+  font-size:1.2em;
+  text-align: left;
+  /*
+  margin-left: 10px;
+  */
 }
 .menuItem {
 	border-bottom: 1px solid #F2F2F2;
@@ -126,4 +202,71 @@
 .formError {
 	font-weight: bold;
 	color: red;
+}
+.red {
+	font-weight: bold;
+	color: red;
+}
+.green {
+	font-weight: bold;
+	color: green;
+}
+.commentsLink {
+}
+.comments {
+}
+.commentator {
+  font-weight: bold;
+}
+.commendBody {
+}
+.commentPublishedAt {
+  color: gray;
+  font-size: .9em;
+  font-style: italic;
+  text-align: right;
+}
+.categoryTitle {
+}
+.latestProjectTitle {
+  font-size: larger;
+}
+.programmingLanguage {
+  font-style: italic;
+}
+.projectDetails {
+}
+.projectTdLeft {
+  width: 150px;
+  font-weight: bold;
+}
+.projectTdRight {
+}
+.toggleLatestProjects {
+  font-size: smaller;
+  float:right;
+  /*
+  margin-top: 18px; 
+  */
+}
+.tagCloud {
+}
+.tagCloudTitle {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+.tagCss1 {
+  font-size: 1.0em;
+}
+.tagCss2 {
+  font-size: 1.2em;
+}
+.tagCss3 {
+  font-size: 1.4em;
+}
+.tagCss4 {
+  font-size: 1.6em;
+}
+.searchResult {
+  font-size: 1.2em;
 }

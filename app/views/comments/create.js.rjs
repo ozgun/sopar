@@ -1,0 +1,25 @@
+clear_fields(page, ["captchaError", "formResult", "commentatorError", "bodyError", "formErrorMsg"])
+if flash[:warning]
+  page.replace_html :formErrorMsg, warning_message(flash[:warning])
+  if @comment
+    unless @comment.errors.empty?
+      page.replace_html :formErrorMsg, warning_message(flash[:warning])
+      if @comment.errors.on('commentator')
+        page.replace_html :commentatorError, warning_message("Name #{@comment.errors.on('commentator')}")
+      end
+      if @comment.errors.on('body')
+        page.replace_html :bodyError, warning_message("Comment #{@comment.errors.on('body')}")
+      end
+      if @comment.errors.on('base')
+        page.replace_html :captchaError, warning_message("#{@comment.errors.on('base')}")
+      end
+    end
+  end
+else
+  page['addCommentForm'].visual_effect :blind_up
+  page['commentForm'].reset
+  page.replace_html :formResult, notice_message(flash[:notice])
+  page['formResult'].show
+end
+flash.discard
+page.replace_html :recaptchaDiv, :partial => "layouts/recaptcha"

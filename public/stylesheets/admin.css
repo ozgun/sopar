@@ -149,7 +149,7 @@ table.simpleList tr td.listPagination {
   text-align: right;
 }
 .smallTextArea {
-  height: 50px;
+  height: 100px;
   width: 500px;
 }
 .sortableItem {

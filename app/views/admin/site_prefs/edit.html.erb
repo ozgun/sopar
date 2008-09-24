@@ -46,6 +46,20 @@
     </td>
   </tr>
   <tr>
+    <td class="left">Re-Captcha Public Key</td>
+    <td class="right">
+      <%= f.text_field :recaptcha_public_key, :class => "text" %>  
+      If you want to use captcha validations for user comments.. 
+    </td>
+  </tr>
+  <tr>
+    <td class="left">Re-Captcha Private Key</td>
+    <td class="right">
+      <%= f.text_field :recaptcha_private_key, :class => "text" %>  
+      ..get your keys from http://recaptcha.net/
+    </td>
+  </tr>
+  <tr>
     <td class="left">Google Analytics Code</td>
     <td class="right">
       <%= f.text_area :google_analytics, :class => "smallTextArea" %>  
@@ -84,7 +98,13 @@
   <tr>
     <td class="left">Feedburner RSS Link</td>
     <td class="right">
-      <%= f.text_area :feedburner, :class => "smallTextArea" %>  
+      <%= f.text_field :feedburner, :class => "text" %>  
+    </td>
+  </tr>
+  <tr>
+    <td class="left">Feed Description</td>
+    <td class="right">
+      <%= f.text_area :feed_description, :class => "smallTextArea" %>  
     </td>
   </tr>
   <tr>

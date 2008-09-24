@@ -14,4 +14,8 @@ class Category < ActiveRecord::Base
     find :all, :order => "position"
   end
   
+  def permalink
+    "#{self.id}-#{self.title.gsub(/[^a-z0-9\-]/i, '-')}"
+  end
+
 end

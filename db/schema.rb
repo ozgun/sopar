@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(:version => 20080909063236) do
     t.string   "slogan"
     t.string   "email"
     t.string   "domain"
+    t.string   "feedburner"
     t.text     "footer"
     t.text     "sidebar"
     t.text     "google_analytics"
@@ -106,8 +107,8 @@ ActiveRecord::Schema.define(:version => 20080909063236) do
     t.text     "twitter"
     t.text     "addthis"
     t.text     "delicious"
-    t.text     "feedburner"
     t.text     "workingwithrails"
+    t.text     "feed_description"
     t.integer  "show_projects",    :limit => 1, :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"

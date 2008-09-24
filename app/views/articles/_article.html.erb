@@ -1,0 +1,12 @@
+<div>
+  <div class="pageTitle">
+    <h3><%= link_to(article.title, article_url(article.permalink)) %></h3>
+  </div>
+  <div class="publishedAt">
+    <%= date_human(article.created_at) %> &nbsp;&nbsp;|&nbsp;&nbsp; 
+    Category: <%= article.category.title %>
+    <span style="float:right"><%= bookmark_this_article %></span> 
+  </div>
+  <%= print_tags(article) %><br />
+</div>
+<%= article.body %>

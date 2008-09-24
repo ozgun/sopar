@@ -1,6 +1,27 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
+  #This is for tag cloud 
+  #include TagsHelper
+
+  #FIXME: This should work in TagsHelper, I don't know why it's not working there!
+  def tag_cloud(tags, classes)
+    return if tags.empty?
+    max_count = tags.sort_by(&:count).last.count.to_f
+    tags.each do |tag|
+      index = ((tag.count / max_count) * (classes.size - 1)).round
+      yield tag, classes[index]
+    end
+  end
+
+  def rss_link
+    if @site_options.feedburner
+      @site_options.feedburner
+    else
+      "http://#{@site_options.domain}/rss.xml" 
+    end
+  end
+
   def screenshot_thumb_with_link(screenshot)
     link_to(screenshot_thumb(screenshot), screenshot.public_filename) if screenshot
   end
@@ -15,9 +36,23 @@ module ApplicationHelper
     end
   end
 
+  def prepare_lightwindow
+    content_for :head do 
+      javascript_include_tag "lightwindow"
+    end
+    content_for :head do 
+      stylesheet_link_tag 'lightwindow'
+    end
+  end
+
+  def page_title(page_title)
+    content_for :title do 
+      "<div class=\"pageTitle\"><h3>#{page_title}</h3></div>"
+    end
+  end
+
   def fancy_submit_button(label)
-    '<button type="submit" class="button positive" style="margin-top: 10px">
-      <img src="/stylesheets/blueprint/plugins/buttons/icons/tick.png" alt=""/>' + label +
+    '<button type="submit" class="button positive" style="width: 110px;"><img src="/stylesheets/blueprint/plugins/buttons/icons/tick.png" alt="" id="submitButtonImage" />' + label +
     '</button>'
   end
 
@@ -27,6 +62,12 @@ module ApplicationHelper
  
   def logo_exists?
     File.exists?("public/images/logo.png")
+  end
+
+  def clear_fields(p, arr)
+    arr.each do |item|
+      p.replace_html item, ""
+    end
   end
 
   def notice_message(msg)
@@ -53,6 +94,10 @@ module ApplicationHelper
     time.strftime("%d/%m/%Y") if time
   end
 
+  def date_human(time)
+    time.to_formatted_s(:long_ordinal) if time
+  end
+
   def print_tags(article)
     ret = ""
     if article.tag_list.size > 0
@@ -63,12 +108,8 @@ module ApplicationHelper
     return ret
   end
 
-  def rss_description
-    "Feed description goes here..."
-  end
-
   def custom_pagination(items)
-    will_paginate items, {:prev_label => "&laquo; Previous", :next_label => "Next &raquo;"}
+    will_paginate items, {:prev_label => "&laquo; Previous", :next_label => "Next &raquo;", :page_links => false, :class => 'digg_pagination' }
   end
 
   def yes_or_no(val)
@@ -76,7 +117,43 @@ module ApplicationHelper
   end
 
   def published_or_not(val)
-    val == 1 ? "<font style=\"color:green\">Published</font>" : "<font style=\"color:red\">Un-published</font>"
+    val == 1 ? "<font class=\"green\">Published</font>" : "<font class=\"red\">Un-published</font>"
+  end
+
+  def html_title
+    " | #{@article.permalink}" if @article 
+    " | #{@page.permalink}" if @page 
+    " | #{@project.permalink}" if @project 
+  end
+
+  def bookmark_this_article
+    if request.path_parameters['action'] == "show"
+      bookmark_this
+    end
+  end
+
+  def bookmark_this
+    unless @site_options.addthis.blank?
+      "#{@site_options.addthis}"
+    end
+  end
+
+  def bookmark_this_article
+    unless @site_options.addthis.blank?
+      "<div class=\"bookmarkThis\">#{@site_options.addthis}</div>"
+    end
+  end
+
+  def log_validation_errors(obj)
+    obj.errors.each{|attr,msg| logger.debug "-------#{attr} - #{msg}-------" }
+  end
+
+  def screenshot_thumb_with_link_for_project(project)
+    if project.screenshots[0]
+      link_to image_tag(project.screenshots[0].public_filename(:thumb), 
+                        :title => project.description, :alt => project.description), 
+              project_url(project.permalink) 
+    end
   end
 
 end

@@ -1,0 +1,14 @@
+<% if @tag %>
+  <% page_title(image_tag("tag_blue.png") + " Tag: #{@tag}") %>
+<% end %>
+
+<% if @articles and @articles.size > 0 %>
+  <% @articles.each do |article| %>
+    <div class="searchResult">
+      <%= link_to article.title, article_url(article.permalink) %> 
+    </div>
+    <%= print_tags(article) %><br />
+  <% end %>
+<% else %>
+  <%= fancy_warning_message("Nothing found") %>
+<% end %>

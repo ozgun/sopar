@@ -1,0 +1,9 @@
+<% if @site_options.recaptcha_public_key.blank? or @site_options.recaptcha_private_key.blank? %>
+  <!-- no re-captha -->
+<% else %>
+  <p>
+    <% ENV['RECAPTCHA_PUBLIC_KEY'] = @site_options.recaptcha_public_key %>
+    <% ENV['RECAPTCHA_PRIVATE_KEY'] = @site_options.recaptcha_private_key %>
+    <%= recaptcha_tags(:ajax => true) %>
+  </p>
+<% end %>

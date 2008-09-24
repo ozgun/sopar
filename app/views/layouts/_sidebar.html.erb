@@ -1,0 +1,57 @@
+<div class="sidebarModule">
+  <h3>Categories</h3>
+  <% @categories.each do |category| %>
+      <%= link_to h(category.title), category_articles_url(category.permalink) %> <br />
+  <% end %>
+</div>
+<br />
+
+<div class="sidebarModule">
+  <h3>Latest Articles</h3>
+  <% if @latest_articles %>
+    <% @latest_articles.each do |latest_article| %>
+        <%= link_to truncate(h(latest_article.title), 50), article_url(latest_article.permalink) %> <br />
+    <% end %>
+  <% end %>
+</div>
+<br />
+
+<% unless @site_options.links.blank? %>
+<div class="sidebarModule">
+  <h3>Links</h3>
+  <%= simple_format(@site_options.links) %>
+</div>
+<% end %>
+
+<div class="sidebarModule">
+  <h3>Search in Tags</h3>
+  <% form_tag "/tags", :method => :get do %>
+    <span><%= text_field_tag :q %></span>
+    <span><%= submit_tag "Search", :name => nil %></span>
+  <% end %>
+</div>
+<br />
+
+
+<% unless @site_options.twitter.blank? %>
+<div class="sidebarModule">
+  <div class="twitter">
+    <%= @site_options.twitter %>
+  </div>
+</div>
+<br />
+<% end %>
+
+<% unless @site_options.workingwithrails.blank? %>
+  <div class="sidebarModule">
+    <%= @site_options.workingwithrails %>
+  </div>
+  <br />
+<% end %>
+
+<% unless @site_options.delicious.blank? %>
+  <div class="sidebarModule">
+    <%= @site_options.delicious %>
+  </div>
+  <br />
+<% end %>

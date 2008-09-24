@@ -1,0 +1,20 @@
+<div class="span-16 headerOuter">
+  <div class="header"><%= link_to @site_options.title, "/" %></div>
+  <div class="slogan alt"><%= @site_options.slogan %></div>
+</div>
+<div class="span-6 last gtalkBadge">
+  <%= render :partial => "layouts/gtalk_badge.html.erb" %> 
+</div>
+<hr />
+<div class="menu">
+    <%= link_to "Blog", "/" %> &nbsp;|&nbsp; 
+    <%= link_to "Projects", projects_url %> &nbsp;|&nbsp; 
+    <%= link_to "About", about_url %> &nbsp;|&nbsp; 
+    <%= link_to "Contact", contact_url %>&nbsp;
+</div>
+<% if @site_options.show_projects %>
+<div class="toggleLatestProjects" style="float: right">
+  <%= link_to_remote "+", :url => {:controller => :projects, :action => :toggle_show} %>
+  <%= link_to_remote "-", :url => {:controller => :projects, :action => :toggle_hide} %>
+</div>
+<% end %>

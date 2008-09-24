@@ -1,0 +1,37 @@
+<% if @article %>
+  <%= render :partial => "article" %>
+
+  <br />
+  <br />
+
+  <div class="comments" id="comments">
+  <h3><%= image_tag("comments.png") %> <%= pluralize(@article.comments_published, 'Comments') %></h3>
+    <% @comments.each do |comment| %>
+      <div class="comment">
+        <div class="commentator"><%= commentator_with_website(comment) %></div>
+        <br />
+        <div class="commentBody">
+          <%= textilize(h(comment.body)) %>
+        </div>
+        <div class="commentPublishedAt"><%= date_human(comment.created_at) %></div>
+        <hr />
+      </div>
+    <% end %>
+  </div>
+
+  <% if @article.comments_closed == 0 %>
+  <div class="addComment">
+    <h3><%= image_tag("comment_add.png") %>
+    <%= link_to_function "Add a Comment", "Effect.SlideDown('addCommentForm')" %>
+    </h3>
+  </div>
+  <div id="formResult" style="display: none"></div>
+  <div id="addCommentForm" style="display: none">
+    <div>
+      <br />
+      <%= render :partial => "comments/form" %>
+    </div>
+  </div>
+  <br />
+  <% end %>
+<% end %>

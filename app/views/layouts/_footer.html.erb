@@ -1,0 +1,9 @@
+<div class="box footer">
+  <%= bookmark_this %> <br />
+  <%= link_to "Home", "/" %> | 
+  <%= link_to "Projects", projects_url %> | 
+  <%= link_to "About", about_url %> | 
+  <%= link_to "Contact", contact_url %> | 
+  <%= link_to "RSS", rss_link %> <br />
+  2008 / <%= link_to @site_options.domain, "http://#{@site_options.domain}" %>
+</div>

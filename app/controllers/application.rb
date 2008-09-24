@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
 
-  before_filter :login_from_cookie
+  before_filter :login_from_cookie, :site_option
   
   #replaces the value to all keys matching words with "[FILTERED]"
   #filter_parameter_logging "password", "new_password"
@@ -34,6 +34,13 @@ class ApplicationController < ActionController::Base
     else
       return
     end
+  end
+  
+  def site_option
+    @site_options = SitePref.find :first 
+    @categories = Category.find :all, :order => "position"
+    @latest_articles = Article.latest_articles
+    @tags = Article.tag_counts
   end
 
   def log_exception(e)
@@ -79,7 +86,6 @@ class ApplicationController < ActionController::Base
   end
 
   def delete_file(filename_with_full_path)
-    #filename_with_full_path = "public/images/logo.png"
     File.delete(filename_with_full_path) if File.exists?(filename_with_full_path)
   rescue Exception => e
     raise e

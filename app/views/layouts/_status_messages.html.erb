@@ -1,0 +1,10 @@
+<% unless flash.blank? %>
+  <div id="statusMessage">
+    <% flash.each do |key, msg| %>
+      <% cls = (key.to_s == "warning") ? "error" : "success"  %>
+      <%= content_tag :div, msg, :class => cls %>
+    <% end %>
+    <% flash.discard %>
+  </div>
+  <hr />
+<% end %>

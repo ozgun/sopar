@@ -1,7 +1,15 @@
 ActionController::Routing::Routes.draw do |map|
   # The priority is based upon order of creation: first created -> highest priority.
 
+  map.about '/about', :controller => 'static_pages', :action => 'show', :id => 1
+  map.contact '/contact', :controller => 'static_pages', :action => 'show', :id => 2
+  map.connect '/rss.xml', :controller => 'articles', :action => 'rss'
+
   map.resources :sitemaps
+  map.resources :articles, :collection => {:rss => :get}
+  map.resources :categories, :has_many => [:articles]
+  map.resources :tags, :member => {:tag => :get}
+  map.resources :projects, :collection => {:toggle_show => :get, :toggle_hide => :get}
 
   # Login
   map.connect 'login', :controller => 'accounts', :action => 'login'
@@ -61,6 +69,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
   # map.root :controller => "welcome"
+  map.root :controller => "articles", :action => "index"
 
   # See how all your routes lay out with "rake routes"
 

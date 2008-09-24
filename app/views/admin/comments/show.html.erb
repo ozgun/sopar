@@ -42,7 +42,7 @@
 	</tr>
 	<tr>
 		<td class="left">Comment</td>
-    <td class="right"><%= simple_format(h(@comment.body)) %></td>
+    <td class="right"><%= textilize(h(@comment.body)) %></td>
 	</tr>
 <% end %>
 </table>

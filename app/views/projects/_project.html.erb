@@ -1,0 +1,14 @@
+<div class="span-4">
+  <%= screenshot_small_with_link(project) %>
+</div>
+<div class="last">
+  <h4><b><%= link_to h(project.title), project_url(project.permalink) %></b></h4>
+  <div class="last projectDescription">
+    <b><%= project.description %></b>
+  </div>
+  <div class="programmingLanguage">
+   <%= h project.programming_language %>
+  </div>
+</div>
+<br />
+<hr />

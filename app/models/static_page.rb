@@ -12,7 +12,7 @@ class StaticPage < ActiveRecord::Base
   validates_presence_of :title
 
   def permalink
-    "#{self.id}-#{self.title}"
+    "#{self.id}-#{self.title.gsub(/[^a-z0-9\-]/i, '-')}"
   end
 
   def status_description

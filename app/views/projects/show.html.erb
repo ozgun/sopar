@@ -1,0 +1,74 @@
+<% if @project %>
+  <% prepare_lightwindow %>
+
+  <% page_title(h(@project.title)) %>
+
+  <div>
+    <b><%= textilize(@project.description) %></b>
+  </div>
+
+  <div class="projectDetails">
+    <%= textilize(@project.details) %>
+  </div>
+
+  <hr />
+
+  <div>
+    <table>
+
+      <%= project_info("Programming Languages", @project.programming_language) %>
+
+      <tr>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+
+      <%= project_info("Customer", @project.customer) %>
+      <%= project_info("Location", @project.location, {:link => true}) %>
+      <%= project_info("Homepage", @project.website, {:link => true}) %>
+      <%= project_info("Demo", @project.demo_link, {:link => true}) %>
+      <%= project_info("Download", @project.download_link, {:link => true}) %>
+
+      <tr>
+        <td colspan="2">&nbsp;</td>
+      </tr>
+
+      <tr>
+        <td class="projectTdLeft">Finished?</td>
+        <td class="projectTdRight"><%= yes_or_no(@project.is_finished) %></td>
+      </tr>
+
+      <% if @project.hours_spent > 0 %> 
+        <%= project_info("Estimated Time", @project.hours_spent.to_s, {:suffix => " hours"}) %>
+      <% end %>
+
+      <%= project_info("Start Date", @project.started_at.to_date) %>
+      <%= project_info("Finish Date", @project.finished_at.to_date) %>
+    </table>
+  </div>
+
+  <hr />
+
+  <% unless @project.demo_video.blank? %>
+    <br />
+    <div><%= @project.demo_video %></div>
+    <br />
+    <hr />
+    <br />
+  <% end %>
+
+
+  <% if @project.screenshots.length > 0 %>
+  <div>
+    <h4>Screenshots</h4>
+    <% @project.screenshots.each do |screenshot| %>
+      <a href="<%= screenshot.public_filename %>" class="lightwindow page-options" title="<%= @project.title %>" author="" caption="<%= @project.title %>" params="lightwindow_width=<%=screenshot.width%>,lightwindow_height=<%=screenshot.height%>"><%=image_tag(screenshot.public_filename(:small)) %></a>
+      &nbsp;
+    <% end %>
+    <div>
+    </div>
+  </div>
+  <% end %>
+
+<% else %>
+  <%= fancy_warning_message("Nothing found!") %>
+<% end %>

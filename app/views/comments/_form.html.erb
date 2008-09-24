@@ -1,0 +1,37 @@
+<div>
+<% remote_form_for :comment, 
+  :url => {:controller => :comments, :action => :create, :article_id => @article.id }, 
+  :html => {:id => "commentForm"},
+  :loading => "changeButtonImageToLoading($('submitButtonImage'))", 
+  :complete => "changeButtonImageToTick($('submitButtonImage'))" do |f| %>
+  <p>
+    <%= f.label :commentator, "Name (*Required)" %> <span id="commentatorError"></span><br />
+    <%= f.text_field :commentator, :class => "text"  %>
+  </p>
+  <p>
+    <%= f.label :commentator_email, "Email (Will not be published)" %><br />
+    <%= f.text_field :commentator_email, :class => "text" %>
+  </p>
+  <p>
+  <%= f.label :commentator_website, "Website" %> (http://example.com) <br />
+  <%= f.text_field :commentator_website, :class => "text" %>
+  </p>
+  <p>
+    <%= f.label :body, "Comment (*Required) (Textile allowed)" %> <span id="bodyError"></span><br />
+	  <%= f.text_area :body, :cols => 80, :rows => 40, :style => "width: 400px; height: 300px" %>
+  </p>
+
+  <div id="recaptchaDiv">
+    <%= render :partial => "layouts/recaptcha" %>
+  </div>
+  <div id="captchaError"></div>
+  <br />
+  <br />
+
+  <p>
+    <%= fancy_submit_button "Submit" %>
+    <span id="formErrorMsg"></span>
+  </p>
+
+<% end %>
+</div>

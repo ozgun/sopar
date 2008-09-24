@@ -1,0 +1,7 @@
+<% page_title "My Projects" %>
+<% if @projects %>
+  <%= render :partial => "project", :collection => @projects %>
+  <%= custom_pagination(@articles) %>
+<% else %>
+  <%= fancy_warning_message("Nothing found!") %>
+<% end %>

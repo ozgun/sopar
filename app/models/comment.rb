@@ -8,6 +8,7 @@ class Comment < ActiveRecord::Base
 
   # Validations
   validates_presence_of :body, :commentator
+  validates_associated :article
 
   def status_description
     self.is_published == 1 ? "<font class=\"green\">Published</font>" : "<font class=\"red\">Un-published</font>"
@@ -23,7 +24,7 @@ class Comment < ActiveRecord::Base
   end
 
   def self.published
-    find :all, :conditions => ["is_published=1"]
+    find :all, :conditions => ["is_published=1"], :order => "created_at DESC"
   end
   
   def self.recent

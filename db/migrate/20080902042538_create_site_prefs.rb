@@ -1,9 +1,9 @@
 class CreateSitePrefs < ActiveRecord::Migration
   def self.up
     create_table :site_prefs do |t|
-      t.string :title, :slogan, :email, :domain
+      t.string :title, :slogan, :email, :domain, :feedburner, :recaptcha_public_key, :recaptcha_private_key
       t.text :footer, :sidebar, :google_analytics, :google_adsense, :gtalk_badge, 
-             :links, :twitter, :addthis, :delicious, :feedburner, :workingwithrails
+             :links, :twitter, :addthis, :delicious, :workingwithrails, :feed_description
       t.integer :show_projects, :limit => 1, :default => 0
       t.timestamps
     end
@@ -12,6 +12,7 @@ class CreateSitePrefs < ActiveRecord::Migration
                  :email => "admin@example.com",
                  :domain => "example.com",
                  :footer => "Copyleft 2008",
+                 :feed_description => "Feed description",
                  :sidebar => "sidebar extra content",
                  :google_analytics => "",
                  :google_adsense => "",
@@ -20,7 +21,9 @@ class CreateSitePrefs < ActiveRecord::Migration
                  :delicious => "",
                  :feedburner => "",
                  :workingwithrails => "",
-                 :links => "<a href=\"http://google.com\">google.com</a>"
+                 :links => "<a href=\"http://google.com\">google.com</a>",
+                 :recaptcha_public_key => "",
+                 :recaptcha_private_key => ""
     p.save!
   end
 

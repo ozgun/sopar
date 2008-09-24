@@ -6,7 +6,7 @@ class Screenshot < ActiveRecord::Base
                  :content_type => :image,
                  :content_type_validation => true,
                  :processor => "Rmagick",
-                 :thumbnails => { :thumb => '100x75>' },
+                 :thumbnails => { :thumb => '265x199>', :small => '100>' },
                  #:resize_to => '150x225>',
                  :path_prefix => 'public/images/screenshots'
   validates_as_attachment

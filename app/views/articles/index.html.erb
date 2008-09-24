@@ -1,0 +1,11 @@
+<% if @article %>
+  <%= category_title %>
+  <%= render :partial => "article" %>
+  <div class="commentsLink">
+    <br />
+    <h3><%= image_tag("comments.png") %> <%= link_to pluralize(@article.comments_published, 'Comments'), article_url(@article.permalink, :anchor => "comments") %></h3> 
+  </div>
+  <%= custom_pagination(@articles) %>
+<% else %>
+  <%= fancy_warning_message("No articles found!") %>
+<% end %>
