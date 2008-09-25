@@ -5,7 +5,8 @@ body {
   /*background-color: #000000;*/
   /*background-color: #2F0618;*/
   /*background-color: #474747;*/
-  background-color: #2F0618;
+  /*background-color: #2F0618;*/
+  background-color: #8C8984;
   /*
   background-color: #6E7B8B;
   font-family: "Lucida Sans" , sans-serif;
@@ -27,7 +28,8 @@ a {
 .headerTop {
   /*background-color: #23B0DB;*/
   /*background-color: #8FE5FF;*/
-  background-color: #00CEF5;
+  /*background-color: #00CEF5;*/
+  background-color: #74C2E1;
 }
 .headerOuter {
 }
@@ -72,7 +74,8 @@ a {
   /*background-color: #57D8FF;*/
   /*background-color: #23B0DB;*/
   /*background-color: #412A9C;*/
-  background-color: #622824;
+  /*background-color: #622824;*/
+  background-color: #005B9A;
   color: white;
 }
 .sidebar a {
@@ -98,7 +101,8 @@ a {
 	text-align: center;
   /*background-color: #CCF3FF;*/
   /*background-color: #23B0DB;*/
-  background-color: #412A9C;
+  /*background-color: #412A9C;*/
+  background-color: #005B9A;
   color: white;
 }
 .footer a {
@@ -115,20 +119,23 @@ a {
 .projectBox0 {
   /*background-color: #8FE5FF;*/
   /*background-color: #57D8FF;*/
-  background-color: #1B66FF;
-  color: white;
+  /*background-color: #1B66FF;*/
+  /*color: white;*/
+  background-color: #0191C8;
 }
 .projectBox1 {
   /*background-color: #8FE5FF;*/
   /*background-color: #57D8FF;*/
-  background-color: #1B66FF;
-  color: white;
+  /*background-color: #1B66FF;*/
+  /*color: white;*/
+  background-color: #0191C8;
 }
 .projectBox2 {
   /*background-color: #8FE5FF;*/
   /*background-color: #57D8FF;*/
-  background-color: #1B66FF;
-  color: white;
+  /*background-color: #1B66FF;*/
+  /*color: white;*/
+  background-color: #0191C8;
 }
 /* Pagination styles begin */
 .pagination {
@@ -314,7 +321,8 @@ a {
 .tagCloud, .tagCloud a {
   /*background-color: #CCF3FF;*/
   /*background-color: #23B0DB;*/
-  background-color: #412A9C;
+  /*background-color: #412A9C;*/
+  background-color: #005B9A;
   color: white;
 }
 .tagCloudTitle {
