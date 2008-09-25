@@ -15,13 +15,6 @@ class TagsController < ApplicationController
     log_exception(e)
   end
   
-  def tag
-    @tag, @articles = search(params[:id])
-  rescue Exception => e
-    flash[:warning] = ERROR_MSG
-    log_exception(e)
-  end
-
   protected
 
   def search(tag)

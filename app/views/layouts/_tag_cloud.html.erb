@@ -1,6 +1,6 @@
 <div class="box tagCloud">
   <span class="tagCloudTitle"><%= image_tag("tag_purple.png") %> Tag Cloud:</span><br />
 <% tag_cloud @tags, %w(tagCss1 tagCss2 tagCss3 tagCss4) do |tag, css_class| %>
-  <%= link_to tag.name, { :action => :tag, :id => tag.name }, :class => css_class %>
+  <%= link_to tag.name, { :controller => :tags, :action => :show, :id => tag.name }, :class => css_class %>
 <% end %>
 </div>
