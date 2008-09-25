@@ -1,4 +1,6 @@
 body {
+  /*background-color:#EDEDED;*/
+  background-color: #696969;
   /*
   background-color: #6E7B8B;
   font-family: "Lucida Sans" , sans-serif;
@@ -17,6 +19,10 @@ a {
 }
 .topBarOuter {
 }
+.headerTop {
+  /*background-color: #23B0DB;*/
+  background-color: #8FE5FF;
+}
 .headerOuter {
 }
 .topBar {
@@ -30,6 +36,7 @@ a {
 }
 .slogan {
   font-size: 2em;
+  color: black;
 }
 .headerAndSlogan {
 }
@@ -42,12 +49,15 @@ a {
 .contentOuter {
 }
 .content {
+  background-color: #CCF3FF;
 }
 .contentBody {
 }
 .sidebarOuter {
 }
 .sidebar {
+  /*background-color: #57D8FF;*/
+  background-color: #23B0DB;
 }
 .sidebarModule {
 }
@@ -62,6 +72,8 @@ a {
 }
 .footer {
 	text-align: center;
+  /*background-color: #CCF3FF;*/
+  background-color: #23B0DB;
 }
 #statusMessage {
 	
@@ -70,6 +82,18 @@ a {
 	text-align: center;
 }
 .pageTitle {
+}
+.projectBox0 {
+  /*background-color: #8FE5FF;*/
+  background-color: #57D8FF;
+}
+.projectBox1 {
+  /*background-color: #8FE5FF;*/
+  background-color: #57D8FF;
+}
+.projectBox2 {
+  /*background-color: #8FE5FF;*/
+  background-color: #57D8FF;
 }
 /* Pagination styles begin */
 .pagination {
@@ -151,6 +175,9 @@ a {
   /*
   margin-left: 10px;
   */
+}
+.menu a {
+  color: black;
 }
 .menuItem {
 	border-bottom: 1px solid #F2F2F2;
@@ -250,6 +277,8 @@ a {
   */
 }
 .tagCloud {
+  /*background-color: #CCF3FF;*/
+  background-color: #23B0DB;
 }
 .tagCloudTitle {
   font-size: 1.4em;

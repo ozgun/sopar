@@ -6,7 +6,7 @@
     <% @latest_projects.each do |latest_project| %>
       <% last_item = (i>1) ? "last" : "" %> 
       <div class="span-8 <%= last_item %>">
-        <div class="box">
+        <div class="box projectBox<%=i%>">
           <span class="latestProjectTitle"><b><%= latest_project.title %></b></span> (<%= latest_project.programming_language %>)<br />
           <%= screenshot_thumb_with_link_for_project(latest_project) %>
         </div>
