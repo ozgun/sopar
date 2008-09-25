@@ -54,7 +54,12 @@ a {
 }
 .content {
   /*background-color: #CCF3FF;*/
-  background-color: #ffffff;
+  /*background-color: #ffffff;*/
+  background-color: #622824;
+  color: #ffffff;
+}
+.content a {
+  color: #ffffff;
 }
 .contentBody {
 }
