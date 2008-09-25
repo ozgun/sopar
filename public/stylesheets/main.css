@@ -3,7 +3,8 @@ body {
   /*background-color: #3d3d3d;*/
   /*background-color: #aaaaaa;*/
   /*background-color: #000000;*/
-  background-color: #2F0618;
+  /*background-color: #2F0618;*/
+  background-color: #474747;
   /*
   background-color: #6E7B8B;
   font-family: "Lucida Sans" , sans-serif;
@@ -55,7 +56,8 @@ a {
 .content {
   /*background-color: #CCF3FF;*/
   /*background-color: #ffffff;*/
-  background-color: #622824;
+  /*background-color: #622824;*/
+  background-color: #2F0618;
   color: #ffffff;
 }
 .content a {
@@ -68,7 +70,8 @@ a {
 .sidebar {
   /*background-color: #57D8FF;*/
   /*background-color: #23B0DB;*/
-  background-color: #412A9C;
+  /*background-color: #412A9C;*/
+  background-color: #622824;
   color: white;
 }
 .sidebar a {
