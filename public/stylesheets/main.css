@@ -4,7 +4,8 @@ body {
   /*background-color: #aaaaaa;*/
   /*background-color: #000000;*/
   /*background-color: #2F0618;*/
-  background-color: #474747;
+  /*background-color: #474747;*/
+  background-color: #2F0618;
   /*
   background-color: #6E7B8B;
   font-family: "Lucida Sans" , sans-serif;
@@ -57,11 +58,11 @@ a {
   /*background-color: #CCF3FF;*/
   /*background-color: #ffffff;*/
   /*background-color: #622824;*/
-  background-color: #2F0618;
-  color: #ffffff;
+  /*background-color: #2F0618;*/
+  background-color: #FFFFFF;
+  /*color: #000000;*/
 }
 .content a {
-  color: #ffffff;
 }
 .contentBody {
 }
