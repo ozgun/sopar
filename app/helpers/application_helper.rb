@@ -51,6 +51,12 @@ module ApplicationHelper
     end
   end
 
+  def browser_title
+    content_for :browser_title do 
+      "#{@article.title}"
+    end
+  end
+
   def fancy_submit_button(label)
     '<button type="submit" class="button positive" style="width: 110px;"><img src="/stylesheets/blueprint/plugins/buttons/icons/tick.png" alt="" id="submitButtonImage" />' + label +
     '</button>'
@@ -121,9 +127,13 @@ module ApplicationHelper
   end
 
   def html_title
-    " | #{@article.permalink}" if @article 
-    " | #{@page.permalink}" if @page 
-    " | #{@project.permalink}" if @project 
+    if @article 
+      " | #{@article.title}" 
+    elsif @page
+      " | #{@page.title}"
+    elsif @project
+      " | #{@project.title}" 
+    end
   end
 
   def bookmark_this_article
