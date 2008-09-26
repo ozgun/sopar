@@ -11,7 +11,7 @@ module ProjectsHelper
   def project_info(desc, value, options={})
     suffix = options[:suffix] ? options[:suffix] : ""
     value = auto_link(value) if options[:link]
-    unless desc.blank?
+    unless value.blank?
       "<tr><td class=\"projectTdLeft\">#{desc}</td>" +
       "<td class=\"projectTdRight\">#{value} #{suffix}</td></tr>"
     end
