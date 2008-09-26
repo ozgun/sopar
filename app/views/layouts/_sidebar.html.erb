@@ -55,3 +55,13 @@
   </div>
   <br />
 <% end %>
+
+<% unless @site_options.google_adsense.blank? %>
+<div class="sidebarModule">
+  <h3>Google Ads</h3>
+  <div class="googleAdsense">
+    <%= @site_options.google_adsense %>
+  </div>
+</div>
+<br />
+<% end %>

@@ -77,6 +77,9 @@
 </div>
 <!-- container end -->
 
+<%# Google analytics if exists %>
+<%= @site_options.google_analytics unless @site_options.google_analytics.blank? %>
+
 <% if ENV['RAILS_ENV'] == 'development' %>
 	<div>
 		<%= render :partial => "layouts/debug" %>
