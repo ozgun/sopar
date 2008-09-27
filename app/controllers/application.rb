@@ -25,7 +25,6 @@ class ApplicationController < ActionController::Base
         user.update_last_logged_in_at
         set_session_values(user)
         set_cookie_values(user)
-        redirect_to "/"
       end
     else
       return
