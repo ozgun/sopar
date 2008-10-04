@@ -6,7 +6,8 @@ class ArticlesController < ApplicationController
         :conditions => ["is_published=1 AND category_id=?", params[:category_id].to_i],
         :order => "created_at DESC"
     else
-      @articles = Article.published.paginate :page => params[:page], :per_page => 1, 
+      @articles = Article.paginate :page => params[:page], :per_page => 1, 
+        :conditions => ["is_published=1"],
         :order => "created_at DESC" 
     end
     @article = @articles[0]
