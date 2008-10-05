@@ -25,7 +25,8 @@ class ArticlesController < ApplicationController
   end
 
   def rss
-    @articles = Article.published.paginate :page => params[:page], :per_page => 10, 
+    @articles = Article.paginate :page => params[:page], :per_page => 10, 
+      :conditions => ["is_published=1"],
       :order => "created_at DESC" 
     respond_to do |format|
       format.xml { render :layout => false }
