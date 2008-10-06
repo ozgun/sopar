@@ -75,7 +75,7 @@ class Admin::CommentsController < ApplicationController
   def destroy
     @comment = Comment.find params[:id]
     @id = @comment.id
-    @comment.article.decrement!(:comments_published)
+    @comment.article.decrement!(:comments_published) if @comment.is_published == 1
     @comment.destroy
     flash[:notice] = "Comment deleted"
     respond_to do |format|
