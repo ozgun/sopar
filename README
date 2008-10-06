@@ -41,6 +41,11 @@
     	:secret      => 'YourSecretKey'
   	}
 
+	6. You may want to uncomment the following line in config/environment.rb file.
+	
+		# ENV['RAILS_ENV'] ||= 'production'
+		
+
 == Getting Started
 
 	Admin Panel: http://localhost:3000/login
