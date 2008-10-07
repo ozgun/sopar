@@ -175,7 +175,8 @@ module ApplicationHelper
    unless @site_options.menu.blank?
      menu_items = @site_options.menu.split("\n")
      menu_items.each_with_index do |item, index|
-       ret += item 
+       item.gsub!(/\n|\r/, "")
+       ret += item.to_s
        ret += "&nbsp;&nbsp;|&nbsp;&nbsp;" if index < menu_items.length - 1
      end 
    end 
