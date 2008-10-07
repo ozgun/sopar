@@ -7,14 +7,8 @@
 </div>
 <hr />
 <div class="menu">
-    <%= link_to "Blog", "/" %> &nbsp;|&nbsp; 
-    <%= link_to "Projects", projects_url %> &nbsp;|&nbsp; 
-    <%= link_to "About", about_url %> &nbsp;|&nbsp; 
-    <%= link_to "Contact", contact_url %>&nbsp;
-    <% if logged_in? %>
-      | <%= link_to "Control Panel", :controller => "/admin/users", :action => :show, :id => session[:user_id] %>
-      | <%= link_to "Logout", "/logout" %>
-    <% end %>
+  <%= top_menu %>
+  <%= admin_menu %>
 </div>
 <% if @site_options.show_projects == 1 %>
 <div class="toggleLatestProjects" style="float: right">

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080909063236) do
+ActiveRecord::Schema.define(:version => 20081006234145) do
 
   create_table "articles", :force => true do |t|
     t.string   "title",                            :default => "", :null => false
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20080909063236) do
     t.integer  "comments_published", :limit => 11, :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "cached_tag_list"
   end
 
   create_table "assets", :force => true do |t|
@@ -109,9 +110,12 @@ ActiveRecord::Schema.define(:version => 20080909063236) do
     t.text     "delicious"
     t.text     "workingwithrails"
     t.text     "feed_description"
-    t.integer  "show_projects",    :limit => 1, :default => 0
+    t.integer  "show_projects",         :limit => 1, :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "recaptcha_public_key"
+    t.string   "recaptcha_private_key"
+    t.text     "menu"
   end
 
   create_table "static_pages", :force => true do |t|

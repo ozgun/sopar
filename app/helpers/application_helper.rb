@@ -170,4 +170,27 @@ module ApplicationHelper
     end
   end
 
+  def top_menu
+   ret = ""
+   unless @site_options.menu.blank?
+     menu_items = @site_options.menu.split("\n")
+     menu_items.each_with_index do |item, index|
+       ret += item 
+       ret += "&nbsp;&nbsp;|&nbsp;&nbsp;" if index < menu_items.length - 1
+     end 
+   end 
+   return ret
+  end
+
+  def admin_menu
+   ret = ""
+    if logged_in?
+      ret += "&nbsp;|&nbsp;&nbsp;" 
+      ret += link_to "Control Panel", :controller => "/admin/users", :action => :show, :id => session[:user_id]
+      ret += "&nbsp;&nbsp;|&nbsp;&nbsp;" 
+      ret += link_to "Logout", "/logout"
+    end
+   return ret
+  end
+
 end
