@@ -19,7 +19,7 @@ module ApplicationHelper
   end
 
   def rss_link
-    if @site_options.feedburner
+    unless @site_options.feedburner.blank?
       @site_options.feedburner
     else
       "http://#{@site_options.domain}/rss.xml" 
