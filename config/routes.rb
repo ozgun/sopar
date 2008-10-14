@@ -7,6 +7,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :sitemaps
   map.resources :articles, :collection => {:rss => :get}
+  map.resources :static_pages
   map.resources :categories, :has_many => [:articles]
   map.resources :tags, :member => {:tag => :get}
   map.resources :projects, :collection => {:toggle_show => :get, :toggle_hide => :get}
