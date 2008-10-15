@@ -1,8 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
   # The priority is based upon order of creation: first created -> highest priority.
 
-  map.about '/about', :controller => 'static_pages', :action => 'show', :id => 1
-  map.contact '/contact', :controller => 'static_pages', :action => 'show', :id => 2
+  map.with_options :controller => 'static_pages', :action => 'show' do |m|
+    m.about '/about', :id => 1
+    m.contact '/contact', :id => 2
+  end
   map.connect '/rss.xml', :controller => 'articles', :action => 'rss'
 
   map.resources :sitemaps
