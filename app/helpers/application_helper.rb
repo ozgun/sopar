@@ -131,6 +131,7 @@ module ApplicationHelper
   end
 
   def html_title
+    return if request.env["REQUEST_URI"] == "/"
     if @article 
       " | #{@article.title}" 
     elsif @page
