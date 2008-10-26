@@ -153,12 +153,6 @@ module ApplicationHelper
     end
   end
 
-  def bookmark_this_article
-    unless @site_options.addthis.blank?
-      "<div class=\"bookmarkThis\">#{@site_options.addthis}</div>"
-    end
-  end
-
   def log_validation_errors(obj)
     obj.errors.each{|attr,msg| logger.debug "-------#{attr} - #{msg}-------" }
   end
