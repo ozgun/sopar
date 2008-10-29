@@ -1,0 +1,17 @@
+<% page_title("Archive") %>
+<% if @articles %>
+  <ul>
+  <% @articles.each do |article| %>
+    <li>
+    <b><%= link_to article.title, article_url(article.permalink) %></b><br />
+    [ <%= date_human(article.created_at) %> |
+    <%= link_to article.category.title, category_articles_url(article.category.permalink) %> ]
+    </li>
+  <% end %>
+  </ul>
+  <div>
+    <%= custom_pagination(@articles) %>
+  </div>
+<% else %>
+  <%= fancy_warning_message("No articles found!") %>
+<% end %>

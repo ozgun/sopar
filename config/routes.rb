@@ -8,7 +8,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect '/rss.xml', :controller => 'articles', :action => 'rss'
 
   map.resources :sitemaps
-  map.resources :articles, :collection => {:rss => :get}
+  map.resources :articles, :collection => {:rss => :get, :archive => :get}
   map.resources :static_pages
   map.resources :categories, :has_many => [:articles]
   map.resources :tags, :member => {:tag => :get}

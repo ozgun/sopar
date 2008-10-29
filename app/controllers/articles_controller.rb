@@ -33,4 +33,10 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def archive
+    @articles = Article.paginate :page => params[:page], :per_page => 20, 
+      :conditions => ["is_published=1"], :include => [:category],
+      :order => "created_at DESC" 
+  end
+
 end
