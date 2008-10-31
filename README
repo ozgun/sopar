@@ -61,6 +61,21 @@
 	5. will_paginate: Pagination
 	6. recaptcha: Get your keys from http://recaptcha.net/
 
+== Feedback & Contact
+
+	If you find a bug please open a ticket at "Lighthouse".
+	http://sopar.lighthouseapp.com/
+
+	If you want help me to make this app better, don't hesitate to fork this project at GitHub.
+	http://github.com/ozgun/sopar/tree/master
+
+	You can contact me via my website or my email address.
+	http://kozgun.net
+	oz@kozgun.net
+
+	Thanks for your interest.
+
 == License
 	
 	See MIT-LICENCE
+
