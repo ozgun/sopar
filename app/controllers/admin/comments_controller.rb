@@ -4,7 +4,7 @@ class Admin::CommentsController < ApplicationController
 
   def index
     @article = Article.find(params[:article_id])
-    @comments = @article.comments.sort_by_is_published.sort_by_date_desc.paginate :per_page => 10, :page => params[:page], :include => [:article]
+    @comments = @article.comments.sort_by_is_published_and_date_desc.sort_by_date_desc.paginate :per_page => 10, :page => params[:page], :include => [:article]
   rescue Exception => e
     flash[:warning] = e.message
     log_exception(e)
@@ -12,7 +12,7 @@ class Admin::CommentsController < ApplicationController
 
   def recent
     conditions = {}
-    @comments = Comment.sort_by_is_published.sort_by_date_desc.paginate :per_page => 10, :page => params[:page], :include => [:article]
+    @comments = Comment.sort_by_is_published_and_date_desc.paginate :per_page => 10, :page => params[:page], :include => [:article]
   rescue Exception => e
     flash[:warning] = e.message
     log_exception(e)
