@@ -37,12 +37,12 @@
         <td class="projectTdRight"><%= yes_or_no(@project.is_finished) %></td>
       </tr>
 
-      <% if @project.hours_spent > 0 %> 
+      <% unless @project.hours_spent.blank? %> 
         <%= project_info("Estimated Time", @project.hours_spent.to_s, {:suffix => " hours"}) %>
       <% end %>
 
-      <%= project_info("Start Date", @project.started_at.to_date) %>
-      <%= project_info("Finish Date", @project.finished_at.to_date) %>
+      <%= project_info("Start Date", @project.started_at.to_date) unless @project.started_at.nil? %>
+      <%= project_info("Finish Date", @project.finished_at.to_date) unless @project.finished_at.nil? %>
     </table>
   </div>
 
