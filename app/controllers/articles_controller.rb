@@ -2,13 +2,10 @@ class ArticlesController < ApplicationController
 
   def index
     if params[:category_id]
-      @articles = Article.paginate :page => params[:page], :per_page => 1, 
-        :conditions => ["is_published=1 AND category_id=?", params[:category_id].to_i],
-        :order => "created_at DESC"
+      @articles = Article.published.sort_by_date_desc.paginate :page => params[:page], :per_page => 1, 
+        :conditions => ["category_id=?", params[:category_id].to_i]
     else
-      @articles = Article.paginate :page => params[:page], :per_page => 1, 
-        :conditions => ["is_published=1"],
-        :order => "created_at DESC" 
+      @articles = Article.published.sort_by_date_desc.paginate :page => params[:page], :per_page => 1
     end
     @article = @articles[0]
   rescue Exception => e
@@ -17,7 +14,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find :first, :conditions => ["is_published=1 AND id=?", params[:id].to_i]
+    @article = Article.published.find(params[:id].to_i)
     @comments = @article.comments.published
   rescue Exception => e
     flash[:warning] = ERROR_MSG
@@ -25,18 +22,15 @@ class ArticlesController < ApplicationController
   end
 
   def rss
-    @articles = Article.paginate :page => params[:page], :per_page => 10, 
-      :conditions => ["is_published=1"],
-      :order => "created_at DESC" 
+    @articles = Article.published.sort_by_date_desc.paginate :page => params[:page], :per_page => 10
     respond_to do |format|
       format.xml { render :layout => false }
     end
   end
 
   def archive
-    @articles = Article.paginate :page => params[:page], :per_page => 20, 
-      :conditions => ["is_published=1"], :include => [:category],
-      :order => "created_at DESC" 
+    @articles = Article.published.sort_by_date_desc.paginate :page => params[:page], :per_page => 20, 
+      :include => [:category]
   end
 
 end

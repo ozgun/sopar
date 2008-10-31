@@ -5,8 +5,7 @@ class Admin::ArticlesController < ApplicationController
   def index
     conditions = {}
     conditions[:category_id] = params[:category_id] if params[:category_id]
-    @articles = Article.paginate :per_page => 10, :page => params[:page],
-      :conditions => conditions, :include => [:category], :order => "created_at DESC"
+    @articles = Article.sort_by_date_desc.paginate :per_page => 10, :page => params[:page], :conditions => conditions, :include => [:category]
   rescue Exception => e
     flash[:warning] = "Error!"
     log_exception(e)
@@ -33,10 +32,14 @@ class Admin::ArticlesController < ApplicationController
 
   def show
     @article = Article.find params[:id]
+  rescue Exception => e
+    flash[:warning] = e.message
   end
 
   def edit
     @article = Article.find params[:id]
+  rescue Exception => e
+    flash[:warning] = e.message
   end
 
   def update

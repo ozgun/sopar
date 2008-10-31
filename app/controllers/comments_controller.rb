@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   
   def create
-    article = Article.find(:first, :conditions => ["id=? AND is_published=1",params[:article_id].to_i])
+    article = Article.published.find(params[:article_id].to_i)
     fill_required_fields = "Please fill the required fields!"
     comments_saved = "Comment saved. Will be published right after spam check. Thank you!"
     @site_options = SitePref.find :first

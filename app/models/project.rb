@@ -1,5 +1,12 @@
 class Project < ActiveRecord::Base
   has_many :screenshots, :dependent => :destroy
+
+  named_scope :published, :conditions => {:is_published => 1}
+  named_scope :unpublished, :conditions => {:is_published => 0}
+  named_scope :sort_by_date_desc, :order => "created_at DESC" 
+  named_scope :sort_by_is_published, :order => "is_published ASC" 
+  named_scope :sort_by_position, :order => "position ASC" 
+  named_scope :latest_projects, lambda { |i| {:conditions => {:is_published => 1}, :order => "position", :limit => (i || 3) } }
   
   # Validations
   validates_presence_of :title
@@ -20,14 +27,6 @@ class Project < ActiveRecord::Base
     self.save!
   rescue Exception => e
     raise e
-  end
-
-  def self.published
-    find :all, :conditions => ["is_published=1"]
-  end
-
-  def self.latest_projects
-    find :all, :conditions => ["is_published=1"], :order => "position", :limit => 3 
   end
 
 end

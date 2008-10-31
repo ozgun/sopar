@@ -68,3 +68,4 @@ end
 
 ERROR_MSG = "Error! Try again please!"
 COMMON_ERROR_MSG = "Error! Please correct the errors and try again!"
+ERROR_NOT_FOUND = "Error: Couldn't find what you are looking for!"

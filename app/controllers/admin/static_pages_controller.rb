@@ -3,7 +3,7 @@ class Admin::StaticPagesController < ApplicationController
   before_filter :login_required
 
   def index
-    @static_pages = StaticPage.paginate :per_page => 10, :page => params[:page], :order => "created_at DESC"
+    @static_pages = StaticPage.sort_by_date_desc.paginate :per_page => 10, :page => params[:page]
   rescue Exception => e
     flash[:warning] = e.message
     log_exception(e)
@@ -29,10 +29,14 @@ class Admin::StaticPagesController < ApplicationController
 
   def show
     @static_page = StaticPage.find params[:id]
+  rescue Exception => e
+    flash[:warning] = e.message
   end
 
   def edit
     @static_page = StaticPage.find params[:id]
+  rescue Exception => e
+    flash[:warning] = e.message
   end
 
   def update

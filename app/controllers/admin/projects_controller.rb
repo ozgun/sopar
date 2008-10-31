@@ -3,8 +3,7 @@ class Admin::ProjectsController < ApplicationController
   before_filter :login_required
 
   def index
-    @projects = Project.paginate :per_page => 10, :page => params[:page], 
-      :order => "position, created_at DESC"
+    @projects = Project.sort_by_position.sort_by_date_desc.paginate :per_page => 10, :page => params[:page]
   rescue Exception => e
     flash[:warning] = e.message
     log_exception(e)

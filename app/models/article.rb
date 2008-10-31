@@ -2,6 +2,11 @@ class Article < ActiveRecord::Base
   belongs_to :category, :counter_cache => true
   belongs_to :user
   has_many :comments, :dependent => :destroy
+  named_scope :published, :conditions => {:is_published => 1}
+  named_scope :unpublished, :conditions => {:is_published => 0}
+  named_scope :sort_by_date_desc, :order => "created_at DESC" 
+  named_scope :sort_by_is_published, :order => "is_published ASC" 
+  named_scope :recent, lambda { |i| {:conditions => {:is_published => 1}, :order => "created_at DESC", :limit => (i || 5) } }
 
   acts_as_taggable
 
@@ -38,22 +43,6 @@ class Article < ActiveRecord::Base
     self.save!
   rescue Exception => e
     raise e
-  end
-
-  def self.published
-    find :all, :conditions => ["is_published=1"]
-  end
-
-  def self.ordered
-    find :all, :order => "created_at DESC" 
-  end
-
-  def self.recent
-    published.find :first, :order => "created_at DESC"
-  end
-
-  def self.latest_articles
-    find :all, :conditions => ["is_published=1"], :order => "created_at DESC", :limit => 5
   end
 
 end

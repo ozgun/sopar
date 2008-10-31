@@ -1,1 +1,18 @@
 <% admin_page_title("Welcome <em>#{@user.username}</em>!") %>
+
+<h3>Unpublished Comments</h3>
+<% if @comments and @comments.size > 0 %>
+<table class="simpleList">
+<tr>
+	<th style="width: 300px;">Comment</th>
+	<th style="width: 150px">Article</th>
+	<th style="width: 150px">Commentator</th>
+	<th style="width: 100px">Created at</th>
+	<th style="">Status</th>
+	<th style="width: 80px">&nbsp;</th>
+</tr>
+	<%= render :partial => "admin/comments/comment", :collection => @comments %>
+</table>
+<% else %>
+  No unpublished comments! 
+<% end %>

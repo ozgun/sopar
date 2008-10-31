@@ -1,6 +1,11 @@
 class StaticPage < ActiveRecord::Base
   before_destroy :dont_destroy_contact_and_about
 
+  named_scope :published, :conditions => {:is_published => 1}
+  named_scope :unpublished, :conditions => {:is_published => 0}
+  named_scope :sort_by_date_desc, :order => "created_at DESC" 
+  named_scope :sort_by_is_published, :order => "is_published ASC" 
+
   def dont_destroy_contact_and_about
     raise "Error! Can't delete default pages!" if (self.id == 1 or self.id == 2)
   end

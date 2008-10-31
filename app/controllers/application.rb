@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
   def site_option
     @site_options = SitePref.find :first 
     @categories = Category.find :all, :order => "position"
-    @latest_articles = Article.latest_articles
+    @latest_articles = Article.recent
     @tags = Article.tag_counts
   end
 

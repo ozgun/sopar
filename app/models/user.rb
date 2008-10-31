@@ -114,11 +114,11 @@ class User < ActiveRecord::Base
   end
 
   def latest_article
-    self.articles.find :first, :conditions => ["published=1"], :order => "created_at DESC"
+    self.articles.published.sort_by_date_desc.find :first
   end
   
   def latest_articles
-    self.articles.find :all, :conditions => ["published=1"], :order => "created_at DESC", :limit => 5
+    self.articles.recent
   end
   
   protected

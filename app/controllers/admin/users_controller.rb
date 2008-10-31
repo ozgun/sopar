@@ -4,6 +4,7 @@ class Admin::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id]) 
+    @comments = Comment.unpublished.sort_by_date_desc.find :all, :include => [:article]
   end
 
   def edit
