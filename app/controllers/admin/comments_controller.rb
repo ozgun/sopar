@@ -1,9 +1,10 @@
 class Admin::CommentsController < ApplicationController
   layout "admin"
   before_filter :login_required
+  before_filter :load_article,
+    :only => [:index, :new, :create, :show, :edit, :update, :destroy]
 
   def index
-    @article = Article.find(params[:article_id])
     @comments = @article.comments.sort_by_is_published_and_date_desc.sort_by_date_desc.paginate :per_page => 10, :page => params[:page], :include => [:article]
   rescue Exception => e
     flash[:warning] = e.message
@@ -19,13 +20,11 @@ class Admin::CommentsController < ApplicationController
   end
 
   def new
-    @article = Article.find(params[:article_id])
     @comment = @article.comments.build
   end
 
   def create
     @comment = Comment.new(params[:comment])
-    @article = Article.find(params[:article_id])
     @comment.article = @article
     @comment.save!
     flash[:notice] = "Comment added"
@@ -40,7 +39,6 @@ class Admin::CommentsController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
   rescue Exception => e
     log_exception(e)
@@ -48,7 +46,6 @@ class Admin::CommentsController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
   rescue Exception => e
     flash[:warning] = e.message
@@ -56,7 +53,6 @@ class Admin::CommentsController < ApplicationController
   end
 
   def update
-    @article = Article.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
     @comment.update_attributes!(params[:comment])
     flash[:notice] = "Article updated"
@@ -109,6 +105,12 @@ class Admin::CommentsController < ApplicationController
     log_exception(e)
     flash[:warning] = e.message
     redirect_to :back
+  end
+
+  protected
+
+  def load_article
+    @article = Article.find(params[:article_id].to_i)
   end
 
 end

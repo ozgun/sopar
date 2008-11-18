@@ -12,17 +12,17 @@
 ActiveRecord::Schema.define(:version => 20081006234145) do
 
   create_table "articles", :force => true do |t|
-    t.string   "title",                            :default => "", :null => false
+    t.string   "title",                                           :null => false
     t.text     "body"
-    t.integer  "category_id",        :limit => 11,                 :null => false
-    t.integer  "user_id",            :limit => 11,                 :null => false
+    t.text     "cached_tag_list"
+    t.integer  "category_id",        :limit => 11,                :null => false
+    t.integer  "user_id",            :limit => 11,                :null => false
     t.integer  "is_published",       :limit => 1,  :default => 0
     t.integer  "comments_closed",    :limit => 1,  :default => 0
     t.integer  "comments_count",     :limit => 11, :default => 0
     t.integer  "comments_published", :limit => 11, :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "cached_tag_list"
   end
 
   create_table "assets", :force => true do |t|
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(:version => 20081006234145) do
   end
 
   create_table "projects", :force => true do |t|
-    t.string   "title",                              :default => "", :null => false
+    t.string   "title",                                             :null => false
     t.text     "description"
     t.text     "details"
     t.text     "demo_video"
@@ -99,6 +99,8 @@ ActiveRecord::Schema.define(:version => 20081006234145) do
     t.string   "email"
     t.string   "domain"
     t.string   "feedburner"
+    t.string   "recaptcha_public_key"
+    t.string   "recaptcha_private_key"
     t.text     "footer"
     t.text     "sidebar"
     t.text     "google_analytics"
@@ -113,8 +115,6 @@ ActiveRecord::Schema.define(:version => 20081006234145) do
     t.integer  "show_projects",         :limit => 1, :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "recaptcha_public_key"
-    t.string   "recaptcha_private_key"
     t.text     "menu"
   end
 
