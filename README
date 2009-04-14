@@ -65,6 +65,16 @@
 	5. will_paginate: Pagination
 	6. recaptcha: Get your keys from http://recaptcha.net/
 
+== Deploying to "heroku"
+
+  $ sudo gem install heroku
+	$ heroku keys:add
+	$ cd sopar
+	$ heroku create
+  $ git push heroku master
+	$ heroku rake db:migrate
+	$ heroku open
+
 == Feedback & Contact
 
 	If you find a bug please open a ticket at "Lighthouse".
