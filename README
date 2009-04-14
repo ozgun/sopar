@@ -2,6 +2,10 @@
 
 	Sopar is a simple and personal blog and CMS application in Ruby in Rails. 
 
+== Demo
+
+  http://stark-water-38.heroku.com
+
 == Requirements
 
 	1. RedCloth
