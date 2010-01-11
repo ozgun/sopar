@@ -2,6 +2,10 @@
 
 	Sopar is a simple and personal blog and CMS application in Ruby in Rails. 
 
+== Demo
+
+  http://stark-water-38.heroku.com
+
 == Requirements
 
 	1. RedCloth
@@ -60,6 +64,16 @@
 	4. textile_editor_helper: Simple textile editor
 	5. will_paginate: Pagination
 	6. recaptcha: Get your keys from http://recaptcha.net/
+
+== Deploying to "heroku"
+
+  $ sudo gem install heroku
+	$ heroku keys:add
+	$ cd sopar
+	$ heroku create
+  $ git push heroku master
+	$ heroku rake db:migrate
+	$ heroku open
 
 == Feedback & Contact
 
